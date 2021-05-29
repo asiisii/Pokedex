@@ -15,9 +15,12 @@ const Home = ({pokemons}) =>{
     )
   })
   return (
+    <>
+    <h1>Pokédex</h1>
     <div className="card-display">
     {cards}
     </div>
+    </>
   )
 }
 
