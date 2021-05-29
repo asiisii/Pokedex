@@ -1,7 +1,8 @@
 import React from 'react';
 import './App.css';
-import apiCalls from '../../apiData/apiCalls';
+import { apiCalls } from '../../apiData/apiCalls';
 import Home from '../Home/Home';
+import PokemonDetails from '../PokemonDetails/PokemonDetails';
 import { Route, Switch } from 'react-router-dom';
 
 class App extends React.Component {
@@ -27,7 +28,18 @@ class App extends React.Component {
     return (
       <main>
         <Switch>
-        <Route exact path="/" render={() => error ? <h2>{error}</h2> : <Home pokemons={pokemons} />} />
+        <Route
+        exact path="/"
+        render={() => error
+          ? <h2>{error}</h2>
+          : <Home pokemons={pokemons} />}
+        />
+        <Route
+        path="/:id"
+        render={({match}) => {
+          const id = match.params.id;
+          return <PokemonDetails id={id} />
+        }}/>
         </Switch>
       </main>
     )
