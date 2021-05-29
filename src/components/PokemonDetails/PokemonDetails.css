@@ -6,6 +6,6 @@
   width: 80%;
 }
 
-.pokemon-info > h1 {
+.pokemon-name {
   text-transform: uppercase;
 }
