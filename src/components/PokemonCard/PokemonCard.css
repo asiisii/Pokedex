@@ -1,0 +1,8 @@
+.pokemon-card {
+  width: 100%
+}
+
+.pokemon-card > img {
+  object-fit: cover;
+  width: 300px;
+}

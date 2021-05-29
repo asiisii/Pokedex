@@ -25,9 +25,9 @@ class App extends React.Component {
   render() {
     const { pokemons, error} = this.state
     return (
-      <>
-      <Home pokemons={pokemons} />
-      </>
+      <main>
+        <Home pokemons={pokemons} />
+      </main>
     )
 
   }
