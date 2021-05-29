@@ -1,18 +1,19 @@
-import React from 'react'
+import React from 'react';
 import './PokemonCard.css'
+import { Link } from 'react-router-dom';
 
 const PokemonCard = ({id, img, name}) => {
   return (
-    <div className="pokemon-card">
-      <img 
+    <Link to={`/${id}`} className="pokemon-card">
+      <img
       id = {id}
-      src={img} 
+      src={img}
       alt={`${name} picture`}
       />
       <h1>{name}</h1>
-      
-    </div>
+
+    </Link>
   )
-} 
+}
 
 export default PokemonCard
