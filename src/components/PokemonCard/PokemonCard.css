@@ -1,0 +1,10 @@
+.pokemon-card {
+  width: 100%;
+  border-radius: 20px;
+  background: linear-gradient(145deg, #adadad, #cdcdcd);
+}
+
+.pokemon-card > img {
+  object-fit: cover;
+  width: 200px;
+}

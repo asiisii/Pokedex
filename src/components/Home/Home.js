@@ -1,5 +1,6 @@
 import React from 'react'
 import PokemonCard from '../PokemonCard/PokemonCard'
+import './Home.css'
 const Home = ({pokemons}) =>{
   const cards = pokemons.map((pokemon, index) => {
     const getId = index + 1
@@ -14,9 +15,9 @@ const Home = ({pokemons}) =>{
     )
   })
   return (
-    <>
+    <div className="card-display">
     {cards}
-    </>
+    </div>
   )
 }
 

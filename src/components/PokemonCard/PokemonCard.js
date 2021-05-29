@@ -1,9 +1,10 @@
 import React from 'react';
+import './PokemonCard.css'
 import { Link } from 'react-router-dom';
 
 const PokemonCard = ({id, img, name}) => {
   return (
-    <Link to={`/${id}`}>
+    <Link to={`/${id}`} className="pokemon-card">
       <img
       id = {id}
       src={img}
