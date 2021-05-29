@@ -15,7 +15,6 @@ class PokemonDetails extends Component {
     try {
       const fetchedPokemonDetails = await getIndividualPokemon(this.state.id)
       this.setState({ pokemonDetails: fetchedPokemonDetails})
-      console.log(this.state.pokemonDetails)
     } catch (e) {
       this.setState({error: 'Request failed'})
     }
