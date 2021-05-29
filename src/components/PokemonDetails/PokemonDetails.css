@@ -5,3 +5,7 @@
   align-items: center;
   width: 80%;
 }
+
+.pokemon-info > h1 {
+  text-transform: uppercase;
+}

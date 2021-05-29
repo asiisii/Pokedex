@@ -27,7 +27,7 @@ class PokemonDetails extends Component {
       <>
       {pokemonDetails &&
         <section className="pokemon-info">
-          <h1>{pokemonDetails.name}</h1>
+          <h1>{pokemonDetails.name}</h1>  
           <img src={`https://pokeres.bastionbot.org/images/pokemon/${id}.png`} alt={pokemonDetails.name} />
           <p>Weight: {pokemonDetails.weight}</p>
           <p>Height: {pokemonDetails.height}</p>
