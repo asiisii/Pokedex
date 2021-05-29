@@ -14,6 +14,7 @@ class PokemonDetails extends Component {
   componentDidMount = async () => {
     try {
       const fetchedPokemonDetails = await getIndividualPokemon(this.state.id)
+      console.log(fetchedPokemonDetails)
       this.setState({ pokemonDetails: fetchedPokemonDetails})
     } catch (e) {
       this.setState({error: 'Request failed'})
@@ -25,7 +26,7 @@ class PokemonDetails extends Component {
     return(
       <>
       {pokemonDetails &&
-        <section>
+        <section className="pokemon-info">
           <h1>{pokemonDetails.name}</h1>
           <img src={`https://pokeres.bastionbot.org/images/pokemon/${id}.png`} alt={pokemonDetails.name} />
           <p>Weight: {pokemonDetails.weight}</p>
