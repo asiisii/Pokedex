@@ -1,10 +1,36 @@
 import React from 'react'
 import './App.css';
+import apiCalls from '../../apiData/apiCalls'
+import Home from '../Home/Home'
 
-function App() {
-  return (
-    <h1>In app</h1>
-  );
+class App extends React.Component {
+  constructor() {
+    super()
+    this.state = {
+      pokemons: [],
+      error: ''
+    }
+  }
+
+  componentDidMount = async () => {
+    try {
+      const fetchedPokemon = await apiCalls()
+      this.setState({ pokemons: fetchedPokemon.results})
+    } catch (e) {
+      this.setState({error: 'Request failed'})
+    }
+    
+  }
+
+  render() {
+    const { pokemons, error} = this.state
+    return (
+      <>
+      <Home pokemons={pokemons} />
+      </>
+    )
+
+  }
 }
 
 export default App;
