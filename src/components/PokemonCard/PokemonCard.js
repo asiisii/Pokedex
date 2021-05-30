@@ -5,9 +5,12 @@ import uncaughtBall from '../../Assets/uncaughtBall.png';
 import caughtBall from  '../../Assets/caughtBall.png'
 
 const PokemonCard = ({id, img, name}) => {
+  const getImg = localStorage.getItem(`${id}`) === 'true' ? caughtBall : uncaughtBall
   return (
     <Link to={`/${id}`} className="pokemon-card">
-      <img className="pokeball" src={uncaughtBall} alt="Pokeball" />
+      <button>
+        <img className="pokeball" src={getImg} alt="Pokeball" />
+      </button> 
       <img
       className="pokemon-pic"
       id = {id}
