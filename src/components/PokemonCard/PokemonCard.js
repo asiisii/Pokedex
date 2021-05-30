@@ -4,18 +4,24 @@ import { Link } from 'react-router-dom';
 import uncaughtBall from '../../Assets/uncaughtBall.png';
 import caughtBall from  '../../Assets/caughtBall.png'
 
-const PokemonCard = ({id, img, name}) => {
+const PokemonCard = ({id, img, name, pokeball, favorite}) => {
   return (
-    <Link to={`/${id}`} className="pokemon-card">
-      <img className="pokeball" src={uncaughtBall} alt="Pokeball" />
-      <img
-      className="pokemon-pic"
-      id = {id}
-      src={img}
-      alt={`${name} posing`}
-      />
-      <h1>{name}</h1>
-    </Link>
+    <div className="pokemon-card">
+      <button className="pokeball" onClick={() => {
+        favorite(name);
+      }}>
+      <img src={pokeball} alt="Pokeball" />
+      </button>
+      <Link to={`/${id}`} >
+        <img
+        className="pokemon-pic"
+        id = {id}
+        src={img}
+        alt={`${name} posing`}
+        />
+        <h1>{name}</h1>
+      </Link>
+    </div>
   )
 }
 

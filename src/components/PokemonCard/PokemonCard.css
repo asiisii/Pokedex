@@ -6,19 +6,26 @@
   width: 100%;
   border-radius: 20px;
   background: linear-gradient(145deg, #adadad, #cdcdcd);
+}
+
+.pokemon-card > a {
   text-decoration: none;
   color: black;
 }
 
 .pokemon-pic {
-  object-fit: cover;
-  width: 200px;
+  margin-top: 12px;
+  width: 160px;
 }
 
-.pokeball {
+.pokemon-card > button {
+  margin-left: 180px;
   margin-top: 12px;
-  position: relative;
-  left: 40%;
-  border-radius: 150px;
-  width: 48px;
+  width: 104px;
+  height: 100px;
+}
+
+.pokemon-card > button > img {
+  float: right;
+  width: 88px;
 }

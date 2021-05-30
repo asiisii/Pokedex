@@ -10,7 +10,8 @@ class App extends React.Component {
     super()
     this.state = {
       pokemons: [],
-      error: ''
+      error: '',
+      caughtPokemon: []
     }
   }
 
@@ -23,8 +24,18 @@ class App extends React.Component {
     }
   }
 
+  catchPokemon = (pokemonName) => {
+    if (!this.state.caughtPokemon.includes(pokemonName)) {
+      this.state.caughtPokemon.push(pokemonName);
+    } else {
+      const pokemonIndex = this.state.caughtPokemon.indexOf(pokemonName)
+      this.state.caughtPokemon.splice(pokemonIndex, 1)
+    }
+    this.forceUpdate();
+  }
+
   render() {
-    const { pokemons, error} = this.state
+    const { pokemons, error, caughtPokemon} = this.state
     return (
       <main>
         <Switch>
@@ -32,13 +43,13 @@ class App extends React.Component {
         exact path="/"
         render={() => error
           ? <h2>{error}</h2>
-          : <Home pokemons={pokemons} />}
+          : <Home pokemons={pokemons} caught={caughtPokemon} favorite={this.catchPokemon} />}
         />
         <Route
         path="/:id"
         render={({match}) => {
           const id = match.params.id;
-          return <PokemonDetails id={id} />
+          return <PokemonDetails id={id} caught={caughtPokemon} favorite={this.catchPokemon} />
         }}/>
         </Switch>
       </main>
