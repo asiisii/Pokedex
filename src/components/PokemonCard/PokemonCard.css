@@ -1,10 +1,24 @@
 .pokemon-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   border-radius: 20px;
   background: linear-gradient(145deg, #adadad, #cdcdcd);
+  text-decoration: none;
+  color: black;
 }
 
-.pokemon-card > img {
+.pokemon-pic {
   object-fit: cover;
   width: 200px;
+}
+
+.pokeball {
+  margin-top: 12px;
+  position: relative;
+  left: 40%;
+  border-radius: 150px;
+  width: 48px;
 }

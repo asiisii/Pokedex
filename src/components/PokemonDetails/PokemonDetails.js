@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import fetchPokemonData  from '../../apiData/apiCalls';
 import getPokemonDetails from '../../apiData/cleanApiCalls';
-import { Link } from 'react-router-dom'
 import './PokemonDetails.css';
+import uncaughtBall from '../../Assets/uncaughtBall.png'
+import caughtBall from  '../../Assets/caughtBall.png'
+import { Link } from 'react-router-dom'
 
 class PokemonDetails extends Component {
   constructor(props) {
@@ -26,24 +28,20 @@ class PokemonDetails extends Component {
     const { pokemonDetails, id } = this.state
     return(
       <>
-      <Link 
-        to='/'
-        className='go-back-btn'
-      >Go back
-      </Link>
       {pokemonDetails &&
-        <section>
-          <h1>{pokemonDetails.name}</h1>
-          <img 
-          src={`https://pokeres.bastionbot.org/images/pokemon/${id}.png`} 
-          alt={pokemonDetails.name} />
+        <section className="pokemon-info">
+          <div className="info-header">
+            <Link to='/'>Go back</Link>
+            <h1 className="pokemon-name" >{pokemonDetails.name}</h1>
+            <img src={uncaughtBall} alt="greyed pokeball"></img>  
+          </div>
+          <img src={`https://pokeres.bastionbot.org/images/pokemon/${id}.png`} alt={pokemonDetails.name} />
           <p>Weight: {pokemonDetails.weight}</p>
           <p>Height: {pokemonDetails.height}</p>
           <p>Types: {pokemonDetails.types}</p>
           <p>Abilities: {pokemonDetails.ability}</p>
           <p>Moves: {pokemonDetails.moves}</p>
         </section>
-        
       }
       </>
     )
