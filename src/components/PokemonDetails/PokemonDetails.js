@@ -11,7 +11,7 @@ class PokemonDetails extends Component {
     super(props);
     this.state = {
       pokemonDetails: '',
-      id: props.id
+      id: props.id,
     }
   }
 
@@ -26,6 +26,8 @@ class PokemonDetails extends Component {
 
   render() {
     const { pokemonDetails, id } = this.state
+    //let foundPokemon = this.props.caught.filter(critter => critter.name === pokemonDetails.name)
+    console.log(this.props.caught);
     return(
       <>
       {pokemonDetails &&
@@ -33,7 +35,11 @@ class PokemonDetails extends Component {
           <div className="info-header">
             <Link to='/'>Go back</Link>
             <h1 className="pokemon-name" >{pokemonDetails.name}</h1>
-            <button onClick={() => this.props.catch()}><img src={!this.props.caught ? uncaughtBall : caughtBall} alt="pokeball"></img></button>  
+            <button onClick={() => {
+              // !this.state.favorite ? this.setState({favorite: true }) : this.setState({favorite: false });
+              this.props.favorite(pokemonDetails.name)}}>
+              <img src={this.props.caught.includes(pokemonDetails.name) ? caughtBall : uncaughtBall} alt="pokeball"></img>
+            </button>
           </div>
           <img src={`https://pokeres.bastionbot.org/images/pokemon/${id}.png`} alt={pokemonDetails.name} />
           <p>Weight: {pokemonDetails.weight}</p>
