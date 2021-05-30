@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import fetchPokemonData  from '../../apiData/apiCalls';
 import getPokemonDetails from '../../apiData/cleanApiCalls';
-import { NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import './PokemonDetails.css';
 
 class PokemonDetails extends Component {
@@ -26,11 +26,11 @@ class PokemonDetails extends Component {
     const { pokemonDetails, id } = this.state
     return(
       <>
-      <NavLink 
+      <Link 
         to='/'
         className='go-back-btn'
       >Go back
-      </NavLink>
+      </Link>
       {pokemonDetails &&
         <section>
           <h1>{pokemonDetails.name}</h1>
