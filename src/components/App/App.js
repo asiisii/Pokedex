@@ -47,6 +47,10 @@ class App extends React.Component {
           ? <h2>{error}</h2>
           : <Home pokemons={pokemons} caught={caughtPokemon} favorite={this.catchPokemon} />}
         />
+        {/* <Route path='/caught' render={() => error
+          ? <h2>{error}</h2>
+          : <Caught pokemons={pokemons} caught={caughtPokemon} favorite={this.catchPokemon} />}
+          /> */}
         <Route
         path="/:id"
         render={({match}) => {
