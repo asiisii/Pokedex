@@ -4,13 +4,16 @@ import fetchPokemonData  from '../../apiData/apiCalls';
 import Home from '../Home/Home';
 import PokemonDetails from '../PokemonDetails/PokemonDetails';
 import { Route, Switch } from 'react-router-dom';
+import uncaughtBall from '../../Assets/uncaughtBall.png';
+import caughtBall from  '../../Assets/caughtBall.png';
 
 class App extends React.Component {
   constructor() {
     super()
     this.state = {
       pokemons: [],
-      error: ''
+      error: '',
+      pokemonCaught: []
     }
   }
 
@@ -23,8 +26,19 @@ class App extends React.Component {
     }
   }
 
+  catchPokemon = () => {
+    // !caught ? this.setState({caught: true} : this.setState({caught: false}))
+    if (!this.state.caught) {
+      this.setState({caught: true});
+      // return caughtBall;
+    } else {
+      this.setState({caught: false});
+      // return uncaughtBall;
+    }
+  }
+
   render() {
-    const { pokemons, error} = this.state
+    const { pokemons, error, caught} = this.state
     return (
       <main>
         <Switch>
@@ -32,13 +46,13 @@ class App extends React.Component {
         exact path="/"
         render={() => error
           ? <h2>{error}</h2>
-          : <Home pokemons={pokemons} />}
+          : <Home pokemons={pokemons} catch={this.catchPokemon} caught={caught} />}
         />
         <Route
         path="/:id"
         render={({match}) => {
           const id = match.params.id;
-          return <PokemonDetails id={id} />
+          return <PokemonDetails id={id} catch={this.catchPokemon} caught={caught} />
         }}/>
         </Switch>
       </main>

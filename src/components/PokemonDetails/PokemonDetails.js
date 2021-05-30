@@ -33,7 +33,7 @@ class PokemonDetails extends Component {
           <div className="info-header">
             <Link to='/'>Go back</Link>
             <h1 className="pokemon-name" >{pokemonDetails.name}</h1>
-            <img src={uncaughtBall} alt="greyed pokeball"></img>  
+            <button onClick={() => this.props.catch()}><img src={!this.props.caught ? uncaughtBall : caughtBall} alt="pokeball"></img></button>  
           </div>
           <img src={`https://pokeres.bastionbot.org/images/pokemon/${id}.png`} alt={pokemonDetails.name} />
           <p>Weight: {pokemonDetails.weight}</p>
