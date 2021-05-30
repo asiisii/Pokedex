@@ -35,7 +35,6 @@ class PokemonDetails extends Component {
             <h1 className="pokemon-name" >{pokemonDetails.name}</h1>
             <button className="pokeball" onClick={() => {
               this.props.favorite(pokemonDetails.name);
-              this.forceUpdate();
             }}>
               <img src={this.props.caught.includes(pokemonDetails.name) ? caughtBall : uncaughtBall} alt="pokeball"></img>
             </button>
