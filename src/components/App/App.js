@@ -42,7 +42,7 @@ class App extends React.Component {
         exact path="/"
         render={() => error
           ? <h2>{error}</h2>
-          : <Home pokemons={pokemons} />}
+          : <Home pokemons={pokemons} caught={caughtPokemon} favorite={this.catchPokemon} />}
         />
         <Route
         path="/:id"
