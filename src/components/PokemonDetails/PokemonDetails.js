@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { getIndividualPokemon } from '../../apiData/apiCalls';
+import getPokemonDetails from '../../apiData/cleanApiCalls';
 import './PokemonDetails.css';
 
 class PokemonDetails extends Component {
@@ -14,7 +15,7 @@ class PokemonDetails extends Component {
   componentDidMount = async () => {
     try {
       const fetchedPokemonDetails = await getIndividualPokemon(this.state.id)
-      this.setState({ pokemonDetails: fetchedPokemonDetails})
+      this.setState({ pokemonDetails: getPokemonDetails(fetchedPokemonDetails)})
     } catch (e) {
       this.setState({error: 'Request failed'})
     }
