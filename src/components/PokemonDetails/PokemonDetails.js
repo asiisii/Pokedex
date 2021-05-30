@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { getIndividualPokemon } from '../../apiData/apiCalls';
 import './PokemonDetails.css';
+import uncaughtBall from '../../Assets/uncaughtBall.png'
+import { Link } from 'react-router-dom'
 
 class PokemonDetails extends Component {
   constructor(props) {
@@ -27,8 +29,10 @@ class PokemonDetails extends Component {
       <>
       {pokemonDetails &&
         <section className="pokemon-info">
-          <div>
-            <h1 className="pokemon-name" >{pokemonDetails.name}</h1>  
+          <div className="info-header">
+            <Link to='/'>Go back</Link>
+            <h1 className="pokemon-name" >{pokemonDetails.name}</h1>
+            <img src={uncaughtBall} alt="greyed pokeball"></img>  
           </div>
           <img src={`https://pokeres.bastionbot.org/images/pokemon/${id}.png`} alt={pokemonDetails.name} />
           <p>Weight: {pokemonDetails.weight}</p>
