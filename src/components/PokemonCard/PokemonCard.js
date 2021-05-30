@@ -7,14 +7,14 @@ import caughtBall from  '../../Assets/caughtBall.png'
 const PokemonCard = ({id, img, name}) => {
   return (
     <Link to={`/${id}`} className="pokemon-card">
-      <img src={uncaughtBall} alt="Pokeball"></img>
+      <img className="pokeball" src={uncaughtBall} alt="Pokeball" />
       <img
+      className="pokemon-pic"
       id = {id}
       src={img}
       alt={`${name} posing`}
       />
       <h1>{name}</h1>
-
     </Link>
   )
 }
