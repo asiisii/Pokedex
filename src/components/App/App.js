@@ -28,8 +28,6 @@ class App extends React.Component {
     if (!this.state.caughtPokemon.includes(pokemonName)) {
       this.state.caughtPokemon.push(pokemonName);
     } else {
-      // const pokemonIndex = this.state.caughtPokemon.findIndex(critter => critter.name === pokemonName);
-      // this.state.caughtPokemon.splice(pokemonIndex, 1);
       const pokemonIndex = this.state.caughtPokemon.indexOf(pokemonName)
       this.state.caughtPokemon.splice(pokemonIndex, 1)
     }
