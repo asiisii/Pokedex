@@ -11,11 +11,14 @@ class PokemonDetails extends Component {
     super(props);
     this.state = {
       pokemonDetails: '',
-      id: props.id
+      id: props.id,
+      caught: localStorage.getItem(`${props.id}`) === 'true' ? true : false
     }
   }
 
   componentDidMount = async () => {
+    const value = localStorage.getItem(`${this.state.id}`)
+    this.setState({caught: value === 'true' ? true : false})
     try {
       const fetchedPokemonDetails = await fetchPokemonData(`/${this.state.id}`)
       this.setState({ pokemonDetails: getPokemonDetails(fetchedPokemonDetails)})
@@ -24,6 +27,14 @@ class PokemonDetails extends Component {
     }
   }
 
+  toggleCatch = (e) => {
+    e.preventDefault()
+    localStorage.setItem(`${this.state.id}`, `${!this.state.caught}` )
+    this.setState({ caught: !this.state.caught })
+  }
+  
+  selectBall = () =>  this.state.caught ? caughtBall : uncaughtBall
+  
   render() {
     const { pokemonDetails, id } = this.state
     return(
@@ -33,9 +44,16 @@ class PokemonDetails extends Component {
           <div className="info-header">
             <Link to='/'>Go back</Link>
             <h1 className="pokemon-name" >{pokemonDetails.name}</h1>
-            <img src={uncaughtBall} alt="greyed pokeball"></img>  
+            <button>
+              <img 
+              src={this.selectBall()} 
+              alt="greyed pokeball" 
+              onClick={(e) => this.toggleCatch(e)}/>
+            </button> 
           </div>
-          <img src={`https://pokeres.bastionbot.org/images/pokemon/${id}.png`} alt={pokemonDetails.name} />
+          <img 
+          src={`https://pokeres.bastionbot.org/images/pokemon/${id}.png`} 
+          alt={pokemonDetails.name} />
           <p>Weight: {pokemonDetails.weight}</p>
           <p>Height: {pokemonDetails.height}</p>
           <p>Types: {pokemonDetails.types}</p>
