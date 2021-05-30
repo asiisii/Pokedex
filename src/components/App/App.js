@@ -31,6 +31,7 @@ class App extends React.Component {
       const pokemonIndex = this.state.caughtPokemon.findIndex(critter => critter.name === pokemonName);
       this.state.caughtPokemon.splice(pokemonIndex, 1);
     }
+    this.forceUpdate();
   }
 
   render() {
