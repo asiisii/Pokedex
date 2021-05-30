@@ -8,7 +8,7 @@ const PokemonCard = ({id, img, name}) => {
       <img
       id = {id}
       src={img}
-      alt={`${name} picture`}
+      alt={`${name} posing`}
       />
       <h1>{name}</h1>
 
