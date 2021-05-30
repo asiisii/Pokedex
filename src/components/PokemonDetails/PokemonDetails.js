@@ -33,7 +33,7 @@ class PokemonDetails extends Component {
           <div className="info-header">
             <Link to='/'>Go back</Link>
             <h1 className="pokemon-name" >{pokemonDetails.name}</h1>
-            <button onClick={() => {
+            <button className="pokeball" onClick={() => {
               this.props.favorite(pokemonDetails.name);
               this.forceUpdate();
             }}>

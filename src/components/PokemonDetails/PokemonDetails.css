@@ -21,6 +21,14 @@
   align-items: center;
 }
 
-.info-header > img {
-  width: 75px;
+.pokeball {
+  width: 200px;
+  height: 200px;
+  border-radius: 150px;
+}
+
+.pokeball > img {
+  cursor: pointer;
+  width: 188px;
+  border-radius: 150px;
 }

@@ -15,15 +15,7 @@
   width: 200px;
 }
 
-.pokeball {
-  margin-top: 12px;
-  position: relative;
-  left: 40%;
-  border-radius: 150px;
-  width: 48px;
-  z-index: 10;
-}
-
-.pokeball > img {
-  object-fit: contain;
+.pokemon-card > button {
+  width: 100px;
+  
 }
