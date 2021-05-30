@@ -25,9 +25,7 @@ class PokemonDetails extends Component {
   }
 
   render() {
-    const { pokemonDetails, id } = this.state
-    //let foundPokemon = this.props.caught.filter(critter => critter.name === pokemonDetails.name)
-    console.log(this.props.caught);
+    const { pokemonDetails, id } = this.state;
     return(
       <>
       {pokemonDetails &&
@@ -36,8 +34,9 @@ class PokemonDetails extends Component {
             <Link to='/'>Go back</Link>
             <h1 className="pokemon-name" >{pokemonDetails.name}</h1>
             <button onClick={() => {
-              // !this.state.favorite ? this.setState({favorite: true }) : this.setState({favorite: false });
-              this.props.favorite(pokemonDetails.name)}}>
+              this.props.favorite(pokemonDetails.name);
+              this.forceUpdate();
+            }}>
               <img src={this.props.caught.includes(pokemonDetails.name) ? caughtBall : uncaughtBall} alt="pokeball"></img>
             </button>
           </div>
