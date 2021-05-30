@@ -3,6 +3,7 @@ import fetchPokemonData  from '../../apiData/apiCalls';
 import getPokemonDetails from '../../apiData/cleanApiCalls';
 import './PokemonDetails.css';
 import uncaughtBall from '../../Assets/uncaughtBall.png'
+import caughtBall from  '../../Assets/caughtBall.png'
 import { Link } from 'react-router-dom'
 
 class PokemonDetails extends Component {
