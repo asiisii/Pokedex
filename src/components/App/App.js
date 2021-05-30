@@ -4,8 +4,6 @@ import fetchPokemonData  from '../../apiData/apiCalls';
 import Home from '../Home/Home';
 import PokemonDetails from '../PokemonDetails/PokemonDetails';
 import { Route, Switch } from 'react-router-dom';
-import uncaughtBall from '../../Assets/uncaughtBall.png';
-import caughtBall from  '../../Assets/caughtBall.png';
 
 class App extends React.Component {
   constructor() {
@@ -34,17 +32,6 @@ class App extends React.Component {
       this.state.caughtPokemon.splice(pokemonIndex, 1);
     }
   }
-
-  // catchPokemon = () => {
-  //   // !caught ? this.setState({caught: true} : this.setState({caught: false}))
-  //   if (!this.state.caught) {
-  //     this.setState({caught: true});
-  //     // return caughtBall;
-  //   } else {
-  //     this.setState({caught: false});
-  //     // return uncaughtBall;
-  //   }
-  // }
 
   render() {
     const { pokemons, error, caughtPokemon} = this.state
