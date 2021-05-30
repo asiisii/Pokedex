@@ -22,7 +22,6 @@ const Home = ({pokemons, caught, favorite}) =>{
   })
   return (
     <>
-    <h1>Pokédex</h1>
     <div className="card-display">
     {cards}
     </div>
