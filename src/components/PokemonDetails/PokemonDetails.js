@@ -31,9 +31,9 @@ class PokemonDetails extends Component {
           <img src={`https://pokeres.bastionbot.org/images/pokemon/${id}.png`} alt={pokemonDetails.name} />
           <p>Weight: {pokemonDetails.weight}</p>
           <p>Height: {pokemonDetails.height}</p>
-          <p>Base experience: {pokemonDetails.base_experience}</p>
-          <p>Type: {pokemonDetails.types[0].type.name}</p>
-          <p>Move: {pokemonDetails.moves[0].move.name}</p>
+          <p>Types: {pokemonDetails.types}</p>
+          <p>Abilities: {pokemonDetails.ability}</p>
+          <p>Moves: {pokemonDetails.moves}</p>
         </section>
       }
       </>
