@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { apiCalls } from '../../apiData/apiCalls';
+import fetchPokemonData  from '../../apiData/apiCalls';
 import Home from '../Home/Home';
 import PokemonDetails from '../PokemonDetails/PokemonDetails';
 import { Route, Switch } from 'react-router-dom';
@@ -16,7 +16,7 @@ class App extends React.Component {
 
   componentDidMount = async () => {
     try {
-      const fetchedPokemon = await apiCalls()
+      const fetchedPokemon = await fetchPokemonData('?limit=151')
       this.setState({ pokemons: fetchedPokemon.results})
     } catch (e) {
       this.setState({error: 'Request failed'})
