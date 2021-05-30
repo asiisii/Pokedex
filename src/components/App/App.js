@@ -13,7 +13,7 @@ class App extends React.Component {
     this.state = {
       pokemons: [],
       error: '',
-      pokemonCaught: []
+      caughtPokemon: []
     }
   }
 
@@ -26,19 +26,28 @@ class App extends React.Component {
     }
   }
 
-  catchPokemon = () => {
-    // !caught ? this.setState({caught: true} : this.setState({caught: false}))
-    if (!this.state.caught) {
-      this.setState({caught: true});
-      // return caughtBall;
+  catchPokemon = (pokemonName) => {
+    if (!this.state.caughtPokemon.includes(pokemonName)) {
+      this.state.caughtPokemon.push(pokemonName);
     } else {
-      this.setState({caught: false});
-      // return uncaughtBall;
+      const pokemonIndex = this.state.caughtPokemon.findIndex(critter => critter.name === pokemonName);
+      this.state.caughtPokemon.splice(pokemonIndex, 1);
     }
   }
 
+  // catchPokemon = () => {
+  //   // !caught ? this.setState({caught: true} : this.setState({caught: false}))
+  //   if (!this.state.caught) {
+  //     this.setState({caught: true});
+  //     // return caughtBall;
+  //   } else {
+  //     this.setState({caught: false});
+  //     // return uncaughtBall;
+  //   }
+  // }
+
   render() {
-    const { pokemons, error, caught} = this.state
+    const { pokemons, error, caughtPokemon} = this.state
     return (
       <main>
         <Switch>
@@ -46,13 +55,13 @@ class App extends React.Component {
         exact path="/"
         render={() => error
           ? <h2>{error}</h2>
-          : <Home pokemons={pokemons} catch={this.catchPokemon} caught={caught} />}
+          : <Home pokemons={pokemons} />}
         />
         <Route
         path="/:id"
         render={({match}) => {
           const id = match.params.id;
-          return <PokemonDetails id={id} catch={this.catchPokemon} caught={caught} />
+          return <PokemonDetails id={id} caught={caughtPokemon} favorite={this.catchPokemon} />
         }}/>
         </Switch>
       </main>
