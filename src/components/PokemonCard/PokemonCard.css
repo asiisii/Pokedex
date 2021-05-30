@@ -21,4 +21,9 @@
   left: 40%;
   border-radius: 150px;
   width: 48px;
+  z-index: 10;
+}
+
+.pokeball > img {
+  object-fit: contain;
 }
