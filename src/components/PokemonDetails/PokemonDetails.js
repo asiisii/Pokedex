@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { getIndividualPokemon } from '../../apiData/apiCalls';
+import fetchPokemonData  from '../../apiData/apiCalls';
+import getPokemonDetails from '../../apiData/cleanApiCalls';
 import './PokemonDetails.css';
 import uncaughtBall from '../../Assets/uncaughtBall.png'
 import { Link } from 'react-router-dom'
@@ -15,9 +16,8 @@ class PokemonDetails extends Component {
 
   componentDidMount = async () => {
     try {
-      const fetchedPokemonDetails = await getIndividualPokemon(this.state.id)
-      console.log(fetchedPokemonDetails)
-      this.setState({ pokemonDetails: fetchedPokemonDetails})
+      const fetchedPokemonDetails = await fetchPokemonData(`/${this.state.id}`)
+      this.setState({ pokemonDetails: getPokemonDetails(fetchedPokemonDetails)})
     } catch (e) {
       this.setState({error: 'Request failed'})
     }
@@ -37,9 +37,9 @@ class PokemonDetails extends Component {
           <img src={`https://pokeres.bastionbot.org/images/pokemon/${id}.png`} alt={pokemonDetails.name} />
           <p>Weight: {pokemonDetails.weight}</p>
           <p>Height: {pokemonDetails.height}</p>
-          <p>Base experience: {pokemonDetails.base_experience}</p>
-          <p>Type: {pokemonDetails.types[0].type.name}</p>
-          <p>Move: {pokemonDetails.moves[0].move.name}</p>
+          <p>Types: {pokemonDetails.types}</p>
+          <p>Abilities: {pokemonDetails.ability}</p>
+          <p>Moves: {pokemonDetails.moves}</p>
         </section>
       }
       </>
