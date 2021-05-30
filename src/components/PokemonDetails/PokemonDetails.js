@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import fetchPokemonData  from '../../apiData/apiCalls';
 import getPokemonDetails from '../../apiData/cleanApiCalls';
+import { NavLink } from 'react-router-dom'
 import './PokemonDetails.css';
 
 class PokemonDetails extends Component {
@@ -25,6 +26,11 @@ class PokemonDetails extends Component {
     const { pokemonDetails, id } = this.state
     return(
       <>
+      <NavLink 
+        to='/'
+        className='go-back-btn'
+      >Go back
+      </NavLink>
       {pokemonDetails &&
         <section>
           <h1>{pokemonDetails.name}</h1>
@@ -37,6 +43,7 @@ class PokemonDetails extends Component {
           <p>Abilities: {pokemonDetails.ability}</p>
           <p>Moves: {pokemonDetails.moves}</p>
         </section>
+        
       }
       </>
     )
