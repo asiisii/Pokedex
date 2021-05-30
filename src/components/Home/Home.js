@@ -11,6 +11,7 @@ const Home = ({pokemons, caught, favorite}) =>{
     const soloPic = `https://pokeres.bastionbot.org/images/pokemon/${getId}.png`;
     return (
       <PokemonCard
+        favorite={favorite}
         pokeball={!favoritePokemon ? uncaughtBall : caughtBall}
         key = {getId}
         id = {getId}
