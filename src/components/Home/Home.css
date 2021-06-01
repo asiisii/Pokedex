@@ -1,8 +1,9 @@
 .card-display {
-  width: 85%;
+  background-color: white;
+  width: 95%;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-gap: 20px;
   text-align: center;
-  margin: auto;
+  padding: 20px;
 }
