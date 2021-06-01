@@ -1,8 +1,6 @@
 import React from 'react'
 import PokemonCard from '../PokemonCard/PokemonCard';
 import './Home.css';
-// import uncaughtBall from '../../Assets/uncaughtBall.png';
-// import caughtBall from  '../../Assets/caughtBall.png'
 
 const Home = ({pokemons, caught, favorite}) =>{
   const cards = pokemons.map((pokemon, index) => {
