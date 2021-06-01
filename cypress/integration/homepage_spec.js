@@ -17,4 +17,14 @@ describe("Home Page", () => {
       .should('have.attr', 'src', 'https://pokeres.bastionbot.org/images/pokemon/1.png')
       .get('#1')
   })
+
+  it('4th card has name of Charmander', () => {
+    cy.get('.card-display')
+      .get('.pokemon-card')
+      .eq(3)
+      .contains('charmander')
+      .find('img')
+      .should('have.attr', 'src', 'https://pokeres.bastionbot.org/images/pokemon/4.png')
+      .get('#4')
+  })
 })
