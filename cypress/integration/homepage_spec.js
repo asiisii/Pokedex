@@ -15,6 +15,8 @@ describe("Home Page", () => {
       .contains('bulbasaur')
       .find('img')
       .should('have.attr', 'src', 'https://pokeres.bastionbot.org/images/pokemon/1.png')
+      .get('button').eq(0).get('button > img').should('have.attr', 'alt', 'Pokeball')
+      // .get('button').eq(0).find('img').contains('uncaughtBall.png')
       .get('#1')
   })
 
@@ -26,5 +28,12 @@ describe("Home Page", () => {
       .find('img')
       .should('have.attr', 'src', 'https://pokeres.bastionbot.org/images/pokemon/4.png')
       .get('#4')
+  })
+
+  it('should show navbar on load', () => {
+    cy.get('header')
+      .get('a').eq(0).contains('Home')
+      .get('a').eq(1).contains('Show Caught')
+      .get('h1').contains('Pokédex')
   })
 })
