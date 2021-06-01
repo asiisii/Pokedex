@@ -1,12 +1,12 @@
 import React from 'react'
-import PokemonCard from '../PokemonCard/PokemonCard';
-import './Home.css';
 import uncaughtBall from '../../Assets/uncaughtBall.png';
 import caughtBall from  '../../Assets/caughtBall.png'
+import PokemonCard from '../PokemonCard/PokemonCard';
 
-const Home = ({pokemons, caught, favorite}) =>{
-  const cards = pokemons.map((pokemon, index) => {
-    const getId = index + 1;
+export default function Caught({pokemons, caught, favorite}) {
+  const caughtPokemon = pokemons.filter(critter => caught.includes(critter.name))
+  const caughtPokemonCards = caughtPokemon.map((pokemon, index) => {
+    const getId = pokemon.url.split('/')[6];
     const favoritePokemon = caught.includes(pokemon.name);
     const soloPic = `https://pokeres.bastionbot.org/images/pokemon/${getId}.png`;
     return (
@@ -23,11 +23,9 @@ const Home = ({pokemons, caught, favorite}) =>{
   return (
     <>
     <div className="card-display">
-    {cards}
+    {caughtPokemonCards}
     </div>
     </>
   )
 }
 
-
-export default Home

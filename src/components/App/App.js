@@ -4,6 +4,8 @@ import fetchPokemonData  from '../../apiData/apiCalls';
 import Home from '../Home/Home';
 import PokemonDetails from '../PokemonDetails/PokemonDetails';
 import { Route, Switch } from 'react-router-dom';
+import Navbar from '../Navbar/Navbar';
+import Caught from '../Caught/Caught'
 
 class App extends React.Component {
   constructor() {
@@ -38,6 +40,7 @@ class App extends React.Component {
     const { pokemons, error, caughtPokemon} = this.state
     return (
       <main>
+        <Navbar />
         <Switch>
         <Route
         exact path="/"
@@ -45,6 +48,10 @@ class App extends React.Component {
           ? <h2>{error}</h2>
           : <Home pokemons={pokemons} caught={caughtPokemon} favorite={this.catchPokemon} />}
         />
+        <Route path='/caught' render={() => error
+          ? <h2>{error}</h2>
+          : <Caught pokemons={pokemons} caught={caughtPokemon} favorite={this.catchPokemon} />}
+          />
         <Route
         path="/:id"
         render={({match}) => {
