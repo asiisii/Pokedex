@@ -28,4 +28,9 @@ describe('Caught Page', () => {
       .get('.card-display').children().should('have.length', 2)
       .get('h1').eq(1).contains('ivysaur')
   })
+
+  it('should take user back to home page once clicked', () => {
+    cy.get('header > a').eq(0).click()
+      .url().should('eq', 'http://localhost:3000/')
+  })
 })
