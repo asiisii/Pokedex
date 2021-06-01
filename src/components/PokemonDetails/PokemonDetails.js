@@ -31,7 +31,7 @@ class PokemonDetails extends Component {
       {pokemonDetails &&
         <section className="pokemon-info">
           <div className="info-header">
-            <Link to='/'><i class="fas fa-arrow-left"></i> Go back</Link>
+            <Link to='/'><i className="fas fa-arrow-left"></i> Go back</Link>
             <h1 className="pokemon-name" >{pokemonDetails.name}</h1>
             <button className="pokeball" onClick={() => {
               this.props.favorite(pokemonDetails.name);
@@ -39,8 +39,10 @@ class PokemonDetails extends Component {
               <img src={this.props.caught.includes(pokemonDetails.name) ? caughtBall : uncaughtBall} alt="pokeball"></img>
             </button>
           </div>
-          <div className='pokemon-detail'>
+          <div className='pokemon-holder'>
             <img src={`https://pokeres.bastionbot.org/images/pokemon/${id}.png`} alt={pokemonDetails.name} className='pokemon' />
+          </div>
+          <div className='pokemon-detail'>
             <p>Weight: {pokemonDetails.weight}</p>
             <p>Height: {pokemonDetails.height}</p>
             <p>Types: {pokemonDetails.types}</p>

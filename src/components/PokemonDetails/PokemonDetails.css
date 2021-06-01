@@ -37,8 +37,20 @@
   justify-content: center;
   align-items: center;
   background: gray;
+  border-radius: 32px 32px 0 0;
 }
 
 .pokemon {
-  background: black;
+  width: 240px;
+}
+
+.pokemon-holder{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 380px;
+  height: 380px;
+  background-image: url('../../Assets/caughtBall.png');
+  background-repeat: no-repeat;
+  background-size: cover;
 }
