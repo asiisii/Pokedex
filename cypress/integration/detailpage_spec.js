@@ -18,5 +18,11 @@ describe('Detail page', () => {
       .get('a').eq(1).contains('Show Caught')
   })
 
-  
+  it.only('should have info header', () => {
+    cy.get('.info-header > a')
+      .contains('Go back')
+      .get('h1').contains('bulbasaur')
+      .get('img').eq(0)
+      .should('have.attr', 'src', uncaughtBall)
+  })
 })
