@@ -1,8 +1,7 @@
 import React from 'react';
 import './PokemonCard.css'
 import { Link } from 'react-router-dom';
-import uncaughtBall from '../../Assets/uncaughtBall.png';
-import caughtBall from  '../../Assets/caughtBall.png'
+
 
 const PokemonCard = ({id, img, name, pokeball, favorite}) => {
   return (
