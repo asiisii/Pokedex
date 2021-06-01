@@ -12,7 +12,7 @@ const PokemonCard = ({id, img, name, pokeball, favorite}) => {
       }}>
       <img 
       src={ pokeball ? caughtBall : uncaughtBall } 
-      alt="Pokeball" />
+      alt={ pokeball ? 'red pokeball' : 'gray pokeball' } />
       </button>
       <Link to={`/${id}`} >
         <img
