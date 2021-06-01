@@ -46,10 +46,9 @@ describe('Detail page', () => {
       .contains('Abilities: overgrow')
       .get('p').eq(4)
       .contains('Moves: razor-wind | swords-dance')
-    
   })
 
-  it.only('should have bulbasaur info', () => {
+  it('should have ivysaur info', () => {
     cy.visit('/2')
       .get('.info-header > a')
       .get('h1').contains('ivysaur')
@@ -66,6 +65,6 @@ describe('Detail page', () => {
       .contains('Abilities: overgrow | chlorophyll')
       .get('p').eq(4)
       .contains('Moves: swords-dance | cut | bind')
-    
   })
+
 })
