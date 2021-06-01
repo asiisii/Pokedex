@@ -48,4 +48,24 @@ describe('Detail page', () => {
       .contains('Moves: razor-wind | swords-dance')
     
   })
+
+  it.only('should have bulbasaur info', () => {
+    cy.visit('/2')
+      .get('.info-header > a')
+      .get('h1').contains('ivysaur')
+      .get('.pokemon-info')
+      .find('img').eq(1)
+      .should('have.attr', 'src', 'https://pokeres.bastionbot.org/images/pokemon/2.png')
+      .get('p').eq(0)
+      .contains('Weight: 130')
+      .get('p').eq(1)
+      .contains('Height: 10')
+      .get('p').eq(2)
+      .contains('Types: grass | poison')
+      .get('p').eq(3)
+      .contains('Abilities: overgrow | chlorophyll')
+      .get('p').eq(4)
+      .contains('Moves: swords-dance | cut | bind')
+    
+  })
 })
