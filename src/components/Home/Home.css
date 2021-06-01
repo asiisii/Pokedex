@@ -6,5 +6,6 @@
   grid-gap: 20px;
   text-align: center;
   padding: 20px;
-  min-height: 804px;
+  min-height: 756px;
+  border-bottom: solid 20px red;
 }
