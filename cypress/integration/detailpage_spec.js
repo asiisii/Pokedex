@@ -26,7 +26,13 @@ describe('Detail page', () => {
       .should('have.attr', 'src', uncaughtBall)
   })
 
-  it.only('should have bulbasaur info', () => {
+  it('should change pokeball on click', () => {
+    cy.get('.info-header > a')
+      .get('img').eq(0).click()
+      .should('have.attr', 'src', caughtBall)
+  })
+
+  it('should have bulbasaur info', () => {
     cy.get('.pokemon-info')
       .find('img').eq(1)
       .should('have.attr', 'src', 'https://pokeres.bastionbot.org/images/pokemon/1.png')
