@@ -1,4 +1,4 @@
-import {caughtBall, uncaughtBall} from '../fixtures/srcData'
+import {caughtBall} from '../fixtures/srcData'
 
 describe('Caught Page', () => {
   beforeEach(() => {
