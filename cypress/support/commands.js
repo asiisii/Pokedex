@@ -23,3 +23,9 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+Cypress.Commands.add('interceptPokmemon', () => {
+  cy.fixture('../fixtures/allpokemondata.json')
+  .then(json => {
+    cy.intercept('https://pokeapi.co/api/v2/pokemon?limit=151',json)
+  })
+} )
