@@ -43,7 +43,7 @@ class App extends React.Component {
       <main>
         <Navbar />
         <Switch>
-        <Route path="/login" component={Login}>
+        <Route path="/login" component={Login} />
         <Route
         exact path="/"
         render={() => error
