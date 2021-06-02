@@ -18,7 +18,7 @@ const PokemonCard = ({id, img, name, pokeball, favorite}) => {
         src={img}
         alt={`${name} posing`}
         />
-        <h1>{name}</h1>
+        <h1>#{id}. {name}</h1>
       </Link>
     </div>
   )

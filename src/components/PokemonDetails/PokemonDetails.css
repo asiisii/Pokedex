@@ -49,6 +49,6 @@
   display: flex;
   justify-content: center;
   width: 640px;
-  border: solid 1px black;
-  background: ;
+  /* border: solid 1px black; */
+  /* background: grey; */
 }
