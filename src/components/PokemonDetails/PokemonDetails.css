@@ -7,10 +7,6 @@
   width: 95%;
 }
 
-.pokemon-info > img {
-  width: 430px;
-}
-
 .info-header {
   width: 100%;
   display: flex;
@@ -19,15 +15,17 @@
 }
 
 .pokeball {
-  width: 200px;
-  height: 200px;
+  width: 180px;
+  height: 180px;
   border-radius: 150px;
   margin-top: 20px;
+  border: none;
+  background: #ffffff;
 }
 
 .pokeball > img {
   cursor: pointer;
-  width: 188px;
+  width: 140px;
   border-radius: 150px;
 }
 
@@ -36,21 +34,21 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: gray;
+  background: linear-gradient(145deg, #adadad, #cdcdcd);
   border-radius: 32px 32px 0 0;
+  border: solid 2px black;
+  width: 700px;
+  text-align: center;
 }
 
 .pokemon {
-  width: 240px;
+  width: 360px;
 }
 
-.pokemon-holder{
+.pokemon-holder {
   display: flex;
   justify-content: center;
-  align-items: center;
-  width: 380px;
-  height: 380px;
-  background-image: url('../../Assets/caughtBall.png');
-  background-repeat: no-repeat;
-  background-size: cover;
+  width: 640px;
+  border: solid 1px black;
+  background: ;
 }

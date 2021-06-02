@@ -39,7 +39,7 @@ class PokemonDetails extends Component {
               <img src={this.props.caught.includes(pokemonDetails.name) ? caughtBall : uncaughtBall} alt="pokeball"></img>
             </button>
           </div>
-          <div className='pokemon-holder'>
+          <div className="pokemon-holder">
             <img src={`https://pokeres.bastionbot.org/images/pokemon/${id}.png`} alt={pokemonDetails.name} className='pokemon' />
           </div>
           <div className='pokemon-detail'>
