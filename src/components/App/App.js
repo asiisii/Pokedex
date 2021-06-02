@@ -5,7 +5,8 @@ import Home from '../Home/Home';
 import PokemonDetails from '../PokemonDetails/PokemonDetails';
 import { Route, Switch } from 'react-router-dom';
 import Navbar from '../Navbar/Navbar';
-import Caught from '../Caught/Caught'
+import Caught from '../Caught/Caught';
+import Login from '../Login/Login';
 
 class App extends React.Component {
   constructor() {
@@ -42,6 +43,7 @@ class App extends React.Component {
       <main>
         <Navbar />
         <Switch>
+        <Route path="/login" component={Login}>
         <Route
         exact path="/"
         render={() => error
