@@ -3,6 +3,7 @@ import uncaughtBall from '../../Assets/uncaughtBall.png';
 import caughtBall from  '../../Assets/caughtBall.png'
 import PokemonCard from '../PokemonCard/PokemonCard';
 
+
 export default function Caught({pokemons, caught, favorite}) {
   const caughtPokemon = pokemons.filter(critter => caught.includes(critter.name))
   const caughtPokemonCards = caughtPokemon.map((pokemon, index) => {
