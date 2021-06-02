@@ -1,7 +1,8 @@
 import React from 'react';
 import './PokemonCard.css'
 import { Link } from 'react-router-dom';
-
+import uncaughtBall from '../../Assets/uncaughtBall.png';
+import caughtBall from  '../../Assets/caughtBall.png'
 
 const PokemonCard = ({id, img, name, pokeball, favorite}) => {
   return (
@@ -9,7 +10,9 @@ const PokemonCard = ({id, img, name, pokeball, favorite}) => {
       <button className="pokeball" onClick={() => {
         favorite(name);
       }}>
-      <img src={pokeball} alt="Pokeball" />
+      <img 
+      src={ pokeball ? caughtBall : uncaughtBall } 
+      alt={ pokeball ? 'red pokeball' : 'gray pokeball' } />
       </button>
       <Link to={`/${id}`} >
         <img
