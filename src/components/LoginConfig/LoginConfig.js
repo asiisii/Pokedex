@@ -46,7 +46,17 @@ class LoginConfig extends React.Component {
     auth.signOut()
   }
 
-  
+  changeAuthState() {
+    auth.onAuthStateChanged(user => {
+      if (user) {
+        this.setState({user: user})
+      } else {
+        this.setState({user: ''})
+      }
+    })
+  }
+
+
 }
 
 export default LoginConfig
