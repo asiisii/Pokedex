@@ -24,7 +24,24 @@ class LoginConfig extends React.Component {
     this.setState({password: e.target.value})
   }
 
-  
+  // handleSignup(e) {
+  //   e.preventDefault()
+  //   auth.createUserWithEmailAndPassword(this.state.email, this.state.password)
+  //      .catch(err => this.setState({error: err}))
+
+  //      this.props.changeUser()
+  // }
+
+  handleLogin(e) {
+    e.preventDefault()
+    auth.signInWithEmailAndPassword(this.state.email, this.state.password)
+    .catch(err => this.setState({error: err}))
+    this.props.changeUser()
+    console.log('im logged in');
+    
+  }
+
+
 }
 
 export default LoginConfig
