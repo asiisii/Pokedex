@@ -60,7 +60,9 @@ class App extends React.Component {
               />
           {/* )} */}
 
-          
+          <Route path='/signup' 
+                    render={ () => <Signup changeUser={this.changeUser} isUser={isUser}/> }
+                  />
         <Route
         exact path="/"
         render={() => error
