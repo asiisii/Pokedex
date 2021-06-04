@@ -10,14 +10,22 @@ import Signup from '../Signup/Signup'
 import { AuthProvider } from '../../context/AuthContext'
 import PrivateRoute from '../PrivateRoute/PrivateRoute'
 
+
 class App extends React.Component {
   constructor() {
     super()
     this.state = {
       pokemons: [],
       error: '',
-      caughtPokemon: []
+      caughtPokemon: [],
+      isUser: false,
+      isLoggedIn: false
     }
+  }
+
+  changeUser = () => {
+    console.log('change');
+    this.setState({isUser: !this.state.isUser})
   }
 
   componentDidMount = async () => {
@@ -40,7 +48,7 @@ class App extends React.Component {
   }
 
   render() {
-    const { pokemons, error, caughtPokemon} = this.state
+    const { pokemons, error, caughtPokemon, isUser} = this.state
     return (
       <main>
         <AuthProvider>
