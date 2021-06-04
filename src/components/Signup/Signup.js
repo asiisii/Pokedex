@@ -56,6 +56,11 @@ class LoginConfig extends React.Component {
     })
   }
 
+  componentDidMount() {
+    this.changeAuthState()
+  }
+
+  
 }
 
 export default LoginConfig
