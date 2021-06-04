@@ -14,6 +14,11 @@ class LoginConfig extends React.Component {
     }
   }
 
+  setEmail(e) {
+    e.preventDefault()
+    this.setState({email: e.target.value})
+  }
+
 
 }
 
