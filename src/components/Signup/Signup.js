@@ -60,7 +60,23 @@ class LoginConfig extends React.Component {
     this.changeAuthState()
   }
 
-  
+  render() {
+    console.log(this.props.isUser);
+    return (
+      <section>
+        <form>
+          <label>Username</label>
+          <input 
+            type='email' 
+            required 
+            value={this.state.email} 
+            onChange={e => this.setEmail(e)}
+          />
+          
+        </form>
+      </section>
+    )
+  }
 }
 
 export default LoginConfig
