@@ -19,7 +19,12 @@ class LoginConfig extends React.Component {
     this.setState({email: e.target.value})
   }
 
+  setPassword(e) {
+    e.preventDefault()
+    this.setState({password: e.target.value})
+  }
 
+  
 }
 
 export default LoginConfig
