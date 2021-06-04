@@ -32,7 +32,21 @@ class LoginConfig extends React.Component {
        this.props.changeUser()
   }
 
+  // handleLogin(e) {
+  //   e.preventDefault()
+  //   auth.signInWithEmailAndPassword(this.state.email, this.state.password)
+  //   .catch(err => this.setState({error: err}))
+  //   this.props.changeUser()
+  //   console.log('im logged in');
+    
+  // }
 
+  handleLogout(e) {
+    e.preventDefault()
+    auth.signOut()
+  }
+
+  
 }
 
 export default LoginConfig
