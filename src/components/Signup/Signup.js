@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react'
 import { useAuth } from '../../context/AuthContext'
 import { Link, useHistory } from 'react-router-dom'
+import './Signup.css'
 
 export default function Signup() {
   const emailRef = useRef()
@@ -28,10 +29,10 @@ export default function Signup() {
   }
 
   return (
-    <>
-      <div>
-      <h2>Start your Adventure</h2>
-      {error && <h2>{error}</h2> }
+    <div className='signup'>
+      <div className='signup-head'>
+        <h2>Start your Adventure</h2>
+        {error && <h2>{error}</h2> }
       </div>
       <form onSubmit={handleSubmit}>
           <label>Email
@@ -60,6 +61,6 @@ export default function Signup() {
         <div>
           <p>Already have an account? <Link to='/login'>Login in</Link></p>
         </div>
-      </>
+      </div>
   )
 }
