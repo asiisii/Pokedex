@@ -1,5 +1,6 @@
 import React from 'react'
 import PokemonCard from '../PokemonCard/PokemonCard';
+import Navbar from '../Navbar/Navbar';
 import './Home.css';
 
 const Home = ({pokemons, caught, favorite}) =>{
@@ -20,6 +21,7 @@ const Home = ({pokemons, caught, favorite}) =>{
   })
   return (
     <>
+    <Navbar />
     <div className="card-display">
     {cards}
     </div>

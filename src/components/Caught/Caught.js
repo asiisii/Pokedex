@@ -2,6 +2,7 @@ import React from 'react'
 import uncaughtBall from '../../Assets/uncaughtBall.png';
 import caughtBall from  '../../Assets/caughtBall.png'
 import PokemonCard from '../PokemonCard/PokemonCard';
+import Navbar from '../Navbar/Navbar';
 
 
 export default function Caught({pokemons, caught, favorite}) {
@@ -23,6 +24,7 @@ export default function Caught({pokemons, caught, favorite}) {
   })
   return (
     <>
+    <Navbar />
     <div className="card-display">
     {caughtPokemonCards}
     </div>

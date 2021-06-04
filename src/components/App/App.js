@@ -4,10 +4,12 @@ import fetchPokemonData  from '../../apiData/apiCalls';
 import Home from '../Home/Home';
 import PokemonDetails from '../PokemonDetails/PokemonDetails';
 import { Route, Switch } from 'react-router-dom';
-import Navbar from '../Navbar/Navbar';
 import Caught from '../Caught/Caught';
-import LoginConfig from '../LoginConfig/LoginConfig';
+import Login from '../Login/Login';
 import Signup from '../Signup/Signup'
+import { AuthProvider } from '../../context/AuthContext'
+import PrivateRoute from '../PrivateRoute/PrivateRoute'
+
 
 class App extends React.Component {
   constructor() {
@@ -49,37 +51,31 @@ class App extends React.Component {
     const { pokemons, error, caughtPokemon, isUser} = this.state
     return (
       <main>
-        <Navbar />
-        <Switch>
-          {/* {isUser ? (
-            <Home pokemons={pokemons} caught={caughtPokemon} favorite={this.catchPokemon} />
-            ) : (
-               */}
-              <Route path='/login' 
-                render={ () => <LoginConfig changeUser={this.changeUser} isUser={isUser}/> }
+        <AuthProvider>
+          <Switch>
+            <Route path="/signup" component={Signup} />
+            <Route path="/login" component={Login} />
+            <PrivateRoute
+              exact path="/"
+              component={Home}
+              pokemons={pokemons}
+              caught={caughtPokemon} 
+              favorite={this.catchPokemon} 
+            />
+            <PrivateRoute path='/caught' 
+              component={Caught} 
+              pokemons={pokemons} 
+              caught={caughtPokemon} 
+              favorite={this.catchPokemon} 
               />
-          {/* )} */}
-
-          <Route path='/signup' 
-                    render={ () => <Signup changeUser={this.changeUser} isUser={isUser}/> }
-                  />
-        <Route
-        exact path="/"
-        render={() => error
-          ? <h2>{error}</h2>
-          : <Home pokemons={pokemons} caught={caughtPokemon} favorite={this.catchPokemon} />}
-        />
-        <Route path='/caught' render={() => error
-          ? <h2>{error}</h2>
-          : <Caught pokemons={pokemons} caught={caughtPokemon} favorite={this.catchPokemon} />}
-          />
-        <Route
-        path="/:id"
-        render={({match}) => {
-          const id = match.params.id;
-          return <PokemonDetails id={id} caught={caughtPokemon} favorite={this.catchPokemon} />
-        }}/>
-        </Switch>
+              
+            <PrivateRoute path="/:id"
+              component={PokemonDetails}  
+              caught={caughtPokemon} 
+              favorite={this.catchPokemon} 
+            />
+          </Switch>
+        </AuthProvider>
       </main>
     )
 

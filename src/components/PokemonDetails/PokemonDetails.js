@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import fetchPokemonData  from '../../apiData/apiCalls';
 import getPokemonDetails from '../../apiData/cleanApiCalls';
+import Navbar from '../Navbar/Navbar';
 import './PokemonDetails.css';
 import uncaughtBall from '../../Assets/uncaughtBall.png'
 import caughtBall from  '../../Assets/caughtBall.png'
@@ -28,6 +29,7 @@ class PokemonDetails extends Component {
     const { pokemonDetails, id } = this.state;
     return(
       <>
+      <Navbar />
       {pokemonDetails &&
         <section className="pokemon-info">
           <div className="info-header">
