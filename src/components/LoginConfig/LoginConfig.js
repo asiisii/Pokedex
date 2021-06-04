@@ -41,7 +41,12 @@ class LoginConfig extends React.Component {
     
   }
 
+  handleLogout(e) {
+    e.preventDefault()
+    auth.signOut()
+  }
 
+  
 }
 
 export default LoginConfig
