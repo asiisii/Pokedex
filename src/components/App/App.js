@@ -6,7 +6,8 @@ import PokemonDetails from '../PokemonDetails/PokemonDetails';
 import { Route, Switch } from 'react-router-dom';
 import Navbar from '../Navbar/Navbar';
 import Caught from '../Caught/Caught';
-import Login from '../Login/Login';
+import LoginConfig from '../LoginConfig/LoginConfig';
+import Signup from '../Signup/Signup'
 
 class App extends React.Component {
   constructor() {
@@ -14,8 +15,15 @@ class App extends React.Component {
     this.state = {
       pokemons: [],
       error: '',
-      caughtPokemon: []
+      caughtPokemon: [],
+      isUser: false,
+      isLoggedIn: false
     }
+  }
+
+  changeUser = () => {
+    console.log('change');
+    this.setState({isUser: !this.state.isUser})
   }
 
   componentDidMount = async () => {
@@ -38,12 +46,21 @@ class App extends React.Component {
   }
 
   render() {
-    const { pokemons, error, caughtPokemon} = this.state
+    const { pokemons, error, caughtPokemon, isUser} = this.state
     return (
       <main>
         <Navbar />
         <Switch>
-        <Route path="/login" component={Login} />
+          {/* {isUser ? (
+            <Home pokemons={pokemons} caught={caughtPokemon} favorite={this.catchPokemon} />
+            ) : (
+               */}
+              <Route path='/login' 
+                render={ () => <LoginConfig changeUser={this.changeUser} isUser={isUser}/> }
+              />
+          {/* )} */}
+
+          
         <Route
         exact path="/"
         render={() => error
