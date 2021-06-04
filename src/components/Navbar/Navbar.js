@@ -1,8 +1,21 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useHistory } from 'react-router-dom'
+import { useAuth } from '../../context/AuthContext'
 import './Navbar.css'
 
 export default function Navbar() {
+  const { signOut } = useAuth()
+  const history = useHistory()
+
+  async function handleLogout() {
+    try{
+      await signOut()
+      history.push('/login')
+    }catch (e) {
+      console.log(e.message);
+    }
+  }
+
   return (
     <header>
       <NavLink activeStyle={{
@@ -14,6 +27,7 @@ export default function Navbar() {
         color: 'white',
         fontWeight: 'bold'
       }} to='/caught'><h1>Show Caught</h1></NavLink>
+      <button onClick={handleLogout}>Log out</button>
     </header>
   )
 }
