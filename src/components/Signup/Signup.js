@@ -30,7 +30,7 @@ export default function Signup() {
   return (
     <>
       <div>
-      <h2>Sign up</h2>
+      <h2>Start your Adventure</h2>
       {error && <h2>{error}</h2> }
       </div>
       <form onSubmit={handleSubmit}>
