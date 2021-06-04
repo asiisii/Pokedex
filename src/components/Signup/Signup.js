@@ -72,7 +72,14 @@ class LoginConfig extends React.Component {
             value={this.state.email} 
             onChange={e => this.setEmail(e)}
           />
-          
+          <label>Password</label>
+          <input 
+            type='password' 
+            required 
+            value={this.state.password} 
+            onChange={e => this.setPassword(e)}
+          />
+         
         </form>
       </section>
     )
