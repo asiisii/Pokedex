@@ -2,13 +2,14 @@ import firebase from 'firebase/app'
 import 'firebase/auth'
 
 const app = firebase.initializeApp({
-  apiKey: process.env.REACT_APP_FIREVASE_API_KEY,
-  authDomain: process.env.REACT_APP_FIREVASE_AUTH_DOMAIN,
-  projectId: process.env.REACT_APP_FIREVASE_PROJECT_ID,
-  storageBucket: process.env.REACT_APP_FIREVASE_STORAGE_BUCKET, 
-  messagingSenderId: process.env.REACT_APP_FIREVASE_MESSAGING_SENDER_ID,
-  appId: process.env.REACT_APP_FIREVASE_APP_ID,
+  apiKey: 'AIzaSyAwA1Il0oVP0qgEhinAs2tKzVIZDhXh16s',
+  authDomain: 'pokedex-development.firebaseapp.com',
+  projectId: 'pokedex-development',
+  storageBucket: 'pokedex-development.appspot.com', 
+  messagingSenderId: '592485036172',
+  appId: '1:592485036172:web:9e4e57895ad242e557cba9',
 })
 
-export const auth = app.auth()
-export default app
+const auth = app.auth()
+export { app, auth }
+
