@@ -30,19 +30,20 @@ export default function Login() {
       {error && <h2>{error}</h2> }
       </div>
       <form onSubmit={handleSubmit}>
-          <label>Email</label>
-          <input
-            type='email'
-            ref={emailRef}
-            required
+          <label>Email
+            <input
+              type='email'
+              ref={emailRef}
+              required
+              />
+          </label>
+          <label>Password
+            <input
+              type='password'
+              ref={passwordRef}
+              required
             />
-          <label>Password</label>
-          <input
-            type='password'
-            ref={passwordRef}
-            required
-          />
-          
+          </label>
           <button disabled={loading} className='submit-button' type='submit'>Login</button>
         </form>
         <div>
@@ -51,4 +52,3 @@ export default function Login() {
       </>
   )
 }
-
