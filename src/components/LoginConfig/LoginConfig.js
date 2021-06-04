@@ -24,22 +24,22 @@ class LoginConfig extends React.Component {
     this.setState({password: e.target.value})
   }
 
-  handleSignup(e) {
-    e.preventDefault()
-    auth.createUserWithEmailAndPassword(this.state.email, this.state.password)
-       .catch(err => this.setState({error: err}))
-
-       this.props.changeUser()
-  }
-
-  // handleLogin(e) {
+  // handleSignup(e) {
   //   e.preventDefault()
-  //   auth.signInWithEmailAndPassword(this.state.email, this.state.password)
-  //   .catch(err => this.setState({error: err}))
-  //   this.props.changeUser()
-  //   console.log('im logged in');
-    
+  //   auth.createUserWithEmailAndPassword(this.state.email, this.state.password)
+  //      .catch(err => this.setState({error: err}))
+
+  //      this.props.changeUser()
   // }
+
+  handleLogin(e) {
+    e.preventDefault()
+    auth.signInWithEmailAndPassword(this.state.email, this.state.password)
+    .catch(err => this.setState({error: err}))
+    this.props.changeUser()
+    console.log('im logged in');
+    
+  }
 
   handleLogout(e) {
     e.preventDefault()
@@ -80,18 +80,9 @@ class LoginConfig extends React.Component {
             onChange={e => this.setPassword(e)}
           />
           <div>
-            {/* {this.props.isUser ? (
-              <>
-              <button onClick={ (e) => this.handleLogin(e)}>Login</button>
-              <p>Don't have an account?</p>
-             <Link to="/signup">Sign up here</Link>
-              </>
-            ) : (  */}
-              <> 
-              <button onClick={ (e) => this.handleSignup(e)}>Sign Up</button>
-              <p>Already have an account?</p><Link to="/login">Login here</Link>
-              </>
-            {/* )}  */}
+            <button onClick={ (e) => this.handleLogin(e)}>Login</button>
+            <p>Don't have an account?</p>
+            <Link to="/signup">Sign up here</Link>
           </div>
         </form>
       </section>
