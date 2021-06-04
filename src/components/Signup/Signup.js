@@ -79,7 +79,20 @@ class LoginConfig extends React.Component {
             value={this.state.password} 
             onChange={e => this.setPassword(e)}
           />
-         
+          <div>
+            {/* {this.props.isUser ? (
+              <>
+              <button onClick={ (e) => this.handleLogin(e)}>Login</button>
+              <p>Don't have an account?</p>
+             <Link to="/signup">Sign up here</Link>
+              </>
+            ) : (  */}
+              <> 
+              <button onClick={ (e) => this.handleSignup(e)}>Sign Up</button>
+              <p>Already have an account?</p><Link to="/login">Login here</Link>
+              </>
+            {/* )}  */}
+          </div>
         </form>
       </section>
     )
