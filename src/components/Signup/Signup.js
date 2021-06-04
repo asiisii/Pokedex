@@ -34,24 +34,27 @@ export default function Signup() {
       {error && <h2>{error}</h2> }
       </div>
       <form onSubmit={handleSubmit}>
-          <label>Email</label>
-          <input
-            type='email'
-            ref={emailRef}
-            required
+          <label>Email
+            <input
+              type='email'
+              ref={emailRef}
+              required
+              />
+          </label>
+          <label>Password
+            <input
+              type='password'
+              ref={passwordRef}
+              required
             />
-          <label>Password</label>
-          <input
-            type='password'
-            ref={passwordRef}
-            required
-          />
-          <label>Confirm Password</label>
-          <input
-            type='password'
-            ref={passwordConfirmationRef}
-            required
-          />
+          </label>
+          <label>Confirm Password
+            <input
+              type='password'
+              ref={passwordConfirmationRef}
+              required
+            />
+          </label>
           <button disabled={loading} className='submit-button' type='submit'>Sign Up</button>
         </form>
         <div>
@@ -60,4 +63,3 @@ export default function Signup() {
       </>
   )
 }
-
