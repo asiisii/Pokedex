@@ -27,3 +27,20 @@ a {
 a:visited {
   color: black;
 }
+
+a:hover {
+  color: white;
+}
+
+.log-out {
+  border: none;
+  background: none;
+  font-size: 36px;
+  font-weight: bold;
+  color: #cdcdcd;
+  cursor: pointer;
+}
+
+.log-out:hover {
+  color: #696969;
+}

@@ -26,7 +26,6 @@ const PokemonDetails = ({id, caught, favorite}) => {
 
   return(
     <>
-      <Navbar />
       {pokemonDetails &&
         <section className={`pokemon-info ${pokemonDetails.types.split('|')[0]}`}>
           <div className="info-header">
