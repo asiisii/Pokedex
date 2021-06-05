@@ -3,7 +3,10 @@ import {caughtBall, uncaughtBall} from '../fixtures/srcData'
 describe("Home Page", () => {
   beforeEach(() => {
     cy.interceptPokmemon()
-    cy.visit('/')
+    cy.visit('http://localhost:3000/login')
+      .get('form input[type="email"]').type('test@gmail.com')
+      .get('form input[type="password"]').type('123456')
+      .get('button').click()
   })
 
   it('should be able to see Pokemon cards', () => {
@@ -33,9 +36,10 @@ describe("Home Page", () => {
 
   it('should show navbar on load', () => {
     cy.get('header')
+      .get('h1').contains('Pokédex')
       .get('a').eq(0).contains('Home')
       .get('a').eq(1).contains('Show Caught')
-      .get('h1').contains('Pokédex')
+      .get('button').contains('Log out')
   })
 
   it('should change image of pokeball when clicked', () => {
