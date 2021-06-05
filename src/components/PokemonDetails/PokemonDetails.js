@@ -31,6 +31,9 @@ const PokemonDetails = ({pokiId, caught, favorite}) => {
     }
   }
 
+  useEffect(() => {
+    fetchSinglePokemonInfo()
+  }, [])
   // render() {
     // const { pokemonDetails, id } = this.state;
     return(
