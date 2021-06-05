@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import React, { useEffect, useState } from 'react';
+// import React, { Component } from 'react';
 import fetchPokemonData  from '../../apiData/apiCalls';
 import getPokemonDetails from '../../apiData/cleanApiCalls';
 import Navbar from '../Navbar/Navbar';
@@ -7,26 +8,21 @@ import uncaughtBall from '../../Assets/uncaughtBall.png'
 import caughtBall from  '../../Assets/caughtBall.png'
 import { Link } from 'react-router-dom'
 
-class PokemonDetails extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      pokemonDetails: '',
-      id: props.id,
-    }
-  }
+// class PokemonDetails extends Component {
+const PokemonDetails = ({pokiId, caught, favorite}) => {
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     pokemonDetails: '',
+  //     id: props.id,
+  //   }
+  // }
+  const [pokemonDetails, setPokemonDetails] = useState('')
+  // const [id, setId] = useState(pokiId)
+  const [error, setError] = useState('')
 
-  componentDidMount = async () => {
-    try {
-      const fetchedPokemonDetails = await fetchPokemonData(`/${this.state.id}`)
-      this.setState({ pokemonDetails: getPokemonDetails(fetchedPokemonDetails)})
-    } catch (e) {
-      this.setState({error: 'Request failed'})
-    }
-  }
-
-  render() {
-    const { pokemonDetails, id } = this.state;
+  // render() {
+    // const { pokemonDetails, id } = this.state;
     return(
       <>
       <Navbar />
@@ -36,13 +32,13 @@ class PokemonDetails extends Component {
             <Link to='/'><i className="fas fa-arrow-left"></i> Go back</Link>
             <h1 className="pokemon-name" >{pokemonDetails.name}</h1>
             <button className="pokeball" onClick={() => {
-              this.props.favorite(pokemonDetails.name);
+              favorite(pokemonDetails.name);
             }}>
-              <img src={this.props.caught.includes(pokemonDetails.name) ? caughtBall : uncaughtBall} alt="pokeball"></img>
+              <img src={caught.includes(pokemonDetails.name) ? caughtBall : uncaughtBall} alt="pokeball"></img>
             </button>
           </div>
           <div className="pokemon-holder">
-            <img src={`https://pokeres.bastionbot.org/images/pokemon/${id}.png`} alt={pokemonDetails.name} className='pokemon' />
+            <img src={`https://pokeres.bastionbot.org/images/pokemon/${pokiId}.png`} alt={pokemonDetails.name} className='pokemon' />
           </div>
           <div className='pokemon-detail'>
             <p>Weight: {pokemonDetails.weight}</p>
@@ -55,6 +51,6 @@ class PokemonDetails extends Component {
       }
       </>
     )
-  }
+  // }
 }
 export default PokemonDetails;
