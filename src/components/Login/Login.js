@@ -19,7 +19,7 @@ export default function Login() {
       await login(emailRef.current.value, passwordRef.current.value)
       history.push('/')
     }catch{
-      setError('Failed to sign in')
+      setError('Email or password is incorrect')
     }
     setLoading(false)
   }
