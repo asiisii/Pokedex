@@ -1,31 +1,46 @@
 .pokemon-info {
-  background: white;
+  margin: auto;
+  min-height: 712px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   width: 95%;
+  border: 8px solid black;
+  border-radius: 40px;
 }
 
 .info-header {
   width: 100%;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
 }
 
+.info-header > a {
+  margin-left: 3%;
+}
+
 .pokeball {
-  width: 180px;
-  height: 180px;
+  width: 120px;
+  height: 120px;
   border-radius: 150px;
   margin-top: 20px;
   border: none;
   background: #ffffff;
+  margin-right: 3%;
+}
+
+.pokemon-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
 .pokeball > img {
   cursor: pointer;
-  width: 140px;
+  width: 112px;
   border-radius: 150px;
 }
 
@@ -35,7 +50,7 @@
   justify-content: center;
   align-items: center;
   background: linear-gradient(145deg, #adadad, #cdcdcd);
-  border-radius: 32px 32px 0 0;
+  border-radius: 32px;
   border: solid 2px black;
   width: 700px;
   text-align: center;
