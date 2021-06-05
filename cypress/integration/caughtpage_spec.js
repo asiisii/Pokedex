@@ -2,11 +2,14 @@ import {caughtBall} from '../fixtures/srcData'
 
 describe('Caught Page', () => {
   beforeEach(() => {
-    cy.visit('/')
+    cy.visit('http://localhost:3000/login')
+      .get('form input[type="email"]').type('test@gmail.com')
+      .get('form input[type="password"]').type('123456')
+      .get('button').click()
       .get('button').get('button > img').eq(0).click()
       .get('button').get('button > img').eq(1).click()
       .get('button').get('button > img').eq(2).click()
-      .get('header > a').eq(1).click()
+      .get('div > a').eq(1).click()
   })
 
   it('should show url change to caught pokemon section', () => {
