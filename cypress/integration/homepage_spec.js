@@ -51,6 +51,13 @@ describe("Home Page", () => {
       .get('button').get('button > img').eq(0).should('have.attr', 'src', caughtBall)
   })
 
+  it('should redirect when individual pokemon is clicked', () => {
+    cy.get('.pokemon-card').eq(0).click()
+      .url().should('eq', 'http://localhost:3000/1')
+      .wait(1000)
+      .get('h1').contains('bulbasaur')
+  })
+
   it('should logout account once button is clicked', () => {
     cy.wait(1000)
       .get('button').contains('Log out').click()
