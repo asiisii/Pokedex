@@ -65,4 +65,9 @@ describe('Login Page', () => {
       .get('button').click()
       .get('form input[type="email"]:invalid')
   })
+
+  it.only('should redirect to sign up component when Sign Up is clicked', () => {
+    cy.get('a').contains('Sign Up').click()
+      .url().should('eq', 'http://localhost:3000/signup')
+  })
 })
