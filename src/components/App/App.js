@@ -24,7 +24,6 @@ const App = () => {
   // }
   const [pokemons, setPokemons] = useState([])
   const [caughtPokemon, setCaughtPokemon] = useState([])
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [error, setError] = useState('')
   
   const catchPokemon = (pokemonName) => {
