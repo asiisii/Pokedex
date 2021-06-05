@@ -21,6 +21,7 @@ describe('Caught Page', () => {
       .get('a').eq(0).contains('Home')
       .get('a').eq(1).contains('Show Caught')
       .get('h1').contains('Pokédex')
+      .get('button').contains('Log out')
   })
 
   it('should show caught pokemon once pokeball is clicked', () => {
@@ -37,5 +38,11 @@ describe('Caught Page', () => {
   it('should take user back to home page once clicked', () => {
     cy.get('div > a').eq(0).click()
       .url().should('eq', 'http://localhost:3000/')
+  })
+
+  it('should logout account once Log out button is clicked', () => {
+    cy.get('button').contains('Log out').click()
+      .url().should('eq', 'http://localhost:3000/login')
+      .get('h2').contains('Continue Adventure')
   })
 })
