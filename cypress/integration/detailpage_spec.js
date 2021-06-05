@@ -60,7 +60,10 @@ describe('Detail page', () => {
   })
 
   it('should have ivysaur info', () => {
-    cy.visit('/2')
+    cy.wait(1000)
+      .get('a').eq(2).click()
+      .get('.pokemon-card').eq(1).click()
+      .url().should('eq', 'http://localhost:3000/2')
       .get('.info-header > a')
       .get('h1').contains('ivysaur')
       .get('.pokemon-info')
