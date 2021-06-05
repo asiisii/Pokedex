@@ -11,8 +11,7 @@ describe('Detail page', () => {
   })
 
   it('should be on pokemon details page', () => {
-    cy.url()
-      .should('eq', 'http://localhost:3000/1')
+    cy.url().should('eq', 'http://localhost:3000/1')
   })
 
   it('should have header contents', () => {
@@ -20,6 +19,7 @@ describe('Detail page', () => {
       .get('a').eq(0).contains('Home')
       .get('h1').contains('Pokédex')
       .get('a').eq(1).contains('Show Caught')
+      .get('button').contains('Log out')
   })
 
   it('should have info header', () => {
