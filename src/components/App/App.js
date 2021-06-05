@@ -77,6 +77,9 @@ const App = () => {
       }
     }
 
+    useEffect(() => {
+      fetchAllPokemonData()
+    }, [])
     // const { pokemons, error, caughtPokemon, isUser} = this.state
     return (
       <main>
