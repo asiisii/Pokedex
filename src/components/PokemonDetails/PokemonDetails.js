@@ -7,13 +7,13 @@ import uncaughtBall from '../../Assets/uncaughtBall.png'
 import getPokemonDetails from '../../apiData/cleanApiCalls';
 import './PokemonDetails.css';
 
-const PokemonDetails = ({pokiId, caught, favorite}) => {
+const PokemonDetails = ({id, caught, favorite}) => {
   const [pokemonDetails, setPokemonDetails] = useState('')
   const [error, setError] = useState('')
 
   const fetchSinglePokemonInfo = async () => {
     try {
-      const fetchedPokemonDetails = await fetchPokemonData(`/${pokiId}`)
+      const fetchedPokemonDetails = await fetchPokemonData(`/${id}`)
       setPokemonDetails(getPokemonDetails(fetchedPokemonDetails))
     } catch (e) {
       setError('Request failed')
@@ -46,7 +46,7 @@ const PokemonDetails = ({pokiId, caught, favorite}) => {
           </div>
           <div className="pokemon-holder">
             <img className='pokemon'
-            src={`https://pokeres.bastionbot.org/images/pokemon/${pokiId}.png`} 
+            src={`https://pokeres.bastionbot.org/images/pokemon/${id}.png`} 
             alt={pokemonDetails.name}  />
           </div>
           <div className='pokemon-detail'>
