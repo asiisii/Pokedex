@@ -3,7 +3,10 @@ import {caughtBall, uncaughtBall} from '../fixtures/srcData'
 describe("Home Page", () => {
   beforeEach(() => {
     cy.interceptPokmemon()
-    cy.visit('/')
+    cy.visit('http://localhost:3000/login')
+      .get('form input[type="email"]').type('test@gmail.com')
+      .get('form input[type="password"]').type('123456')
+      .get('button').click()
   })
 
   it('should be able to see Pokemon cards', () => {
@@ -33,9 +36,10 @@ describe("Home Page", () => {
 
   it('should show navbar on load', () => {
     cy.get('header')
+      .get('h1').contains('Pokédex')
       .get('a').eq(0).contains('Home')
       .get('a').eq(1).contains('Show Caught')
-      .get('h1').contains('Pokédex')
+      .get('button').contains('Log out')
   })
 
   it('should change image of pokeball when clicked', () => {
@@ -45,5 +49,19 @@ describe("Home Page", () => {
       .get('button').get('button > img').eq(0).should('have.attr', 'src', uncaughtBall)
       .get('button').get('button > img').eq(0).click()
       .get('button').get('button > img').eq(0).should('have.attr', 'src', caughtBall)
+  })
+
+  it('should redirect when individual pokemon is clicked', () => {
+    cy.get('.pokemon-card').eq(0).click()
+      .url().should('eq', 'http://localhost:3000/1')
+      .wait(1000)
+      .get('h1').contains('bulbasaur')
+  })
+
+  it('should logout account once Log out button is clicked', () => {
+    cy.wait(1000)
+      .get('button').contains('Log out').click()
+      .url().should('eq', 'http://localhost:3000/login')
+      .get('h2').contains('Continue Adventure')
   })
 })
