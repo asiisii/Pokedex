@@ -7,7 +7,7 @@ describe('Detail page', () => {
       .get('form input[type="email"]').type('test@gmail.com')
       .get('form input[type="password"]').type('123456')
       .get('button').click()
-      .get('.pokemon-card').eq(0).click()  
+      .get('.pokemon-card').eq(0).click()
   })
 
   it('should be on pokemon details page', () => {
@@ -50,6 +50,13 @@ describe('Detail page', () => {
       .contains('Abilities: overgrow')
       .get('p').eq(4)
       .contains('Moves: razor-wind | swords-dance')
+  })
+
+  it('should go back to home page when click on go back', () => {
+    cy.wait(1000)
+      .get('a').eq(2).click()
+      .url().should('eq', 'http://localhost:3000/')
+      .get('h1').contains('Pokédex')
   })
 
   it('should have ivysaur info', () => {
