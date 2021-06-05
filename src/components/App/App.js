@@ -65,7 +65,18 @@ const App = () => {
         // forceUpdate();
       }
       
-    
+    const fetchAllPokemonData = async () => {
+      try {
+        const fetchedPokemon = await fetchPokemonData('?limit=151')
+        // this.setState({ pokemons: fetchedPokemon.results})
+        setPokemons(fetchedPokemon.results)
+        
+      } catch (e) {
+        // this.setState({error: 'Request failed'})
+        setError('Request failed')
+      }
+    }
+
     // const { pokemons, error, caughtPokemon, isUser} = this.state
     return (
       <main>
