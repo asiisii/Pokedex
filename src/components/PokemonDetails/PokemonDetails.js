@@ -20,6 +20,16 @@ const PokemonDetails = ({pokiId, caught, favorite}) => {
   const [pokemonDetails, setPokemonDetails] = useState('')
   // const [id, setId] = useState(pokiId)
   const [error, setError] = useState('')
+  const fetchSinglePokemonInfo = async () => {
+    try {
+      const fetchedPokemonDetails = await fetchPokemonData(`/${pokiId}`)
+      // this.setState({ pokemonDetails: getPokemonDetails(fetchedPokemonDetails)})
+      setPokemonDetails(getPokemonDetails(fetchedPokemonDetails))
+    } catch (e) {
+      // this.setState({error: 'Request failed'})
+      setError('Request failed')
+    }
+  }
 
   // render() {
     // const { pokemonDetails, id } = this.state;
