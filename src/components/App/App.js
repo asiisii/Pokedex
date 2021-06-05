@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react'
 import './App.css';
 import fetchPokemonData  from '../../apiData/apiCalls';
 import Home from '../Home/Home';
@@ -11,44 +11,25 @@ import { AuthProvider } from '../../context/AuthContext'
 import PrivateRoute from '../PrivateRoute/PrivateRoute'
 
 
-class App extends React.Component {
-  constructor() {
-    super()
-    this.state = {
-      pokemons: [],
-      error: '',
-      caughtPokemon: [],
-      isUser: false,
-      isLoggedIn: false
-    }
-  }
+const App = () => {
+  // constructor() {
+  //   super()
+  //   this.state = {
+  //     pokemons: [],
+  //     error: '',
+  //     caughtPokemon: [],
+  //     isUser: false,
+  //     isLoggedIn: false
+  //   }
+  // }
+  const [pokemons, setPokemons] = useState([])
+  const [caughtPokemon, setCaughtPokemon] = useState([])
+  const [isUser, setIsUser] = useState(false)
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const [error, setError] = useState('')
 
-  changeUser = () => {
-    console.log('change');
-    this.setState({isUser: !this.state.isUser})
-  }
-
-  componentDidMount = async () => {
-    try {
-      const fetchedPokemon = await fetchPokemonData('?limit=151')
-      this.setState({ pokemons: fetchedPokemon.results})
-    } catch (e) {
-      this.setState({error: 'Request failed'})
-    }
-  }
-
-  catchPokemon = (pokemonName) => {
-    if (!this.state.caughtPokemon.includes(pokemonName)) {
-      this.state.caughtPokemon.push(pokemonName);
-    } else {
-      const pokemonIndex = this.state.caughtPokemon.indexOf(pokemonName)
-      this.state.caughtPokemon.splice(pokemonIndex, 1)
-    }
-    this.forceUpdate();
-  }
-
-  render() {
-    const { pokemons, error, caughtPokemon, isUser} = this.state
+ 
+    // const { pokemons, error, caughtPokemon, isUser} = this.state
     return (
       <main>
         <AuthProvider>
@@ -60,26 +41,24 @@ class App extends React.Component {
               component={Home}
               pokemons={pokemons}
               caught={caughtPokemon} 
-              favorite={this.catchPokemon} 
+              favorite={catchPokemon} 
             />
             <PrivateRoute path='/caught' 
               component={Caught} 
               pokemons={pokemons} 
               caught={caughtPokemon} 
-              favorite={this.catchPokemon} 
+              favorite={catchPokemon} 
               />
               
             <PrivateRoute path="/:id"
               component={PokemonDetails}  
               caught={caughtPokemon} 
-              favorite={this.catchPokemon} 
+              favorite={catchPokemon} 
             />
           </Switch>
         </AuthProvider>
       </main>
     )
-
-  }
 }
 
 export default App;
