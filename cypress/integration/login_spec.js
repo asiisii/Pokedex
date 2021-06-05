@@ -35,4 +35,11 @@ describe('Login Page', () => {
       .get('button').click()
       .get('form input[type="email"]:invalid')
   })
+
+  it('should return an error if password input is left empty', () => {
+    cy.get('form input[type="email"]').type('test@gmail.com')
+      .get('form input[type="password"]')
+      .get('button').click()
+      .get('form input[type="password"]:invalid')
+  })
 })
