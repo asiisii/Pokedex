@@ -1,32 +1,21 @@
 import React, { useEffect, useState } from 'react';
-// import React, { Component } from 'react';
-import fetchPokemonData  from '../../apiData/apiCalls';
-import getPokemonDetails from '../../apiData/cleanApiCalls';
-import Navbar from '../Navbar/Navbar';
-import './PokemonDetails.css';
-import uncaughtBall from '../../Assets/uncaughtBall.png'
-import caughtBall from  '../../Assets/caughtBall.png'
 import { Link } from 'react-router-dom'
+import Navbar from '../Navbar/Navbar';
+import caughtBall from  '../../Assets/caughtBall.png'
+import fetchPokemonData  from '../../apiData/apiCalls';
+import uncaughtBall from '../../Assets/uncaughtBall.png'
+import getPokemonDetails from '../../apiData/cleanApiCalls';
+import './PokemonDetails.css';
 
-// class PokemonDetails extends Component {
 const PokemonDetails = ({pokiId, caught, favorite}) => {
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     pokemonDetails: '',
-  //     id: props.id,
-  //   }
-  // }
   const [pokemonDetails, setPokemonDetails] = useState('')
-  // const [id, setId] = useState(pokiId)
   const [error, setError] = useState('')
+
   const fetchSinglePokemonInfo = async () => {
     try {
       const fetchedPokemonDetails = await fetchPokemonData(`/${pokiId}`)
-      // this.setState({ pokemonDetails: getPokemonDetails(fetchedPokemonDetails)})
       setPokemonDetails(getPokemonDetails(fetchedPokemonDetails))
     } catch (e) {
-      // this.setState({error: 'Request failed'})
       setError('Request failed')
     }
   }
@@ -34,24 +23,31 @@ const PokemonDetails = ({pokiId, caught, favorite}) => {
   useEffect(() => {
     fetchSinglePokemonInfo()
   }, [])
-  // render() {
-    // const { pokemonDetails, id } = this.state;
-    return(
-      <>
+
+  return(
+    <>
       <Navbar />
       {pokemonDetails &&
         <section className="pokemon-info">
           <div className="info-header">
-            <Link to='/'><i className="fas fa-arrow-left"></i> Go back</Link>
+            <Link to='/'>
+              <i className="fas fa-arrow-left"></i> Go back
+            </Link>
             <h1 className="pokemon-name" >{pokemonDetails.name}</h1>
-            <button className="pokeball" onClick={() => {
-              favorite(pokemonDetails.name);
+            <button className="pokeball" 
+              onClick={() => {
+                favorite(pokemonDetails.name);
             }}>
-              <img src={caught.includes(pokemonDetails.name) ? caughtBall : uncaughtBall} alt="pokeball"></img>
+              <img src={caught.includes(pokemonDetails.name) 
+                ? caughtBall 
+                : uncaughtBall} 
+                alt="pokeball"></img>
             </button>
           </div>
           <div className="pokemon-holder">
-            <img src={`https://pokeres.bastionbot.org/images/pokemon/${pokiId}.png`} alt={pokemonDetails.name} className='pokemon' />
+            <img className='pokemon'
+            src={`https://pokeres.bastionbot.org/images/pokemon/${pokiId}.png`} 
+            alt={pokemonDetails.name}  />
           </div>
           <div className='pokemon-detail'>
             <p>Weight: {pokemonDetails.weight}</p>
@@ -62,8 +58,7 @@ const PokemonDetails = ({pokiId, caught, favorite}) => {
           </div>
         </section>
       }
-      </>
-    )
-  // }
+    </>
+  )
 }
 export default PokemonDetails;
