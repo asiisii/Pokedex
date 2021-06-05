@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react'
 import { useAuth } from '../../context/AuthContext'
 import { Link, useHistory } from 'react-router-dom'
+import './Login.css'
 
 export default function Login() {
   const emailRef = useRef()
@@ -24,12 +25,13 @@ export default function Login() {
   }
 
   return (
-    <>
-      <div>
-      <h2>Log in</h2>
+    <div className='login'>
+      <div className='login-head'>
+      <h2>Continue Adventure</h2>
       {error && <h2>{error}</h2> }
       </div>
       <form onSubmit={handleSubmit}>
+        <div className='txt-feild'>
           <label>Email
             <input
               type='email'
@@ -37,18 +39,21 @@ export default function Login() {
               required
               />
           </label>
+        </div>
+        <div className='txt-feild'>
           <label>Password
             <input
               type='password'
               ref={passwordRef}
               required
-            />
+              />
           </label>
+        </div>
           <button disabled={loading} className='submit-button' type='submit'>Login</button>
         </form>
         <div>
-          <p>Need an account? <Link to='/signup'>Sign Up</Link></p>
+          <p className='switch'>Need an account? <Link to='/signup'>Sign Up</Link></p>
         </div>
-      </>
+      </div>
   )
 }
