@@ -58,4 +58,11 @@ describe('Login Page', () => {
       .wait(1000)
       .get('h2').eq(1).contains('Failed to sign in')
   })
+
+  it('should return an error if @ symbol is left out of email', () => {
+    cy.get('form input[type="email"]').type('testgmail.com')
+      .get('form input[type="password"]').type('123456')
+      .get('button').click()
+      .get('form input[type="email"]:invalid')
+  })
 })
