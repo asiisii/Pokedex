@@ -28,7 +28,12 @@ const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [error, setError] = useState('')
 
- 
+  const changeUser = () => {
+    console.log('change');
+    // this.setState({isUser: !this.state.isUser})
+    setIsUser(!isUser)
+  }
+
     // const { pokemons, error, caughtPokemon, isUser} = this.state
     return (
       <main>
