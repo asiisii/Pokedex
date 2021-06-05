@@ -3,12 +3,15 @@ import {caughtBall, uncaughtBall} from '../fixtures/srcData'
 describe('Detail page', () => {
   beforeEach(() => {
     cy.interceptPokmemon()
-    cy.visit('/1')
+    cy.visit('http://localhost:3000/login')
+      .get('form input[type="email"]').type('test@gmail.com')
+      .get('form input[type="password"]').type('123456')
+      .get('button').click()
+      .get('div > .pokemon-card').eq(0).click()
   })
 
   it('should be on pokemon details page', () => {
-    cy.url()
-      .should('eq', 'http://localhost:3000/1')
+    cy.url().should('eq', 'http://localhost:3000/1')
   })
 
   it('should have header contents', () => {
@@ -16,6 +19,7 @@ describe('Detail page', () => {
       .get('a').eq(0).contains('Home')
       .get('h1').contains('Pokédex')
       .get('a').eq(1).contains('Show Caught')
+      .get('button').contains('Log out')
   })
 
   it('should have info header', () => {
@@ -48,8 +52,18 @@ describe('Detail page', () => {
       .contains('Moves: razor-wind | swords-dance')
   })
 
+  it('should go back to home page when click on go back', () => {
+    cy.wait(1000)
+      .get('a').eq(2).click()
+      .url().should('eq', 'http://localhost:3000/')
+      .get('h1').contains('Pokédex')
+  })
+
   it('should have ivysaur info', () => {
-    cy.visit('/2')
+    cy.wait(1000)
+      .get('a').eq(2).click()
+      .get('.pokemon-card').eq(1).click()
+      .url().should('eq', 'http://localhost:3000/2')
       .get('.info-header > a')
       .get('h1').contains('ivysaur')
       .get('.pokemon-info')
@@ -67,4 +81,9 @@ describe('Detail page', () => {
       .contains('Moves: swords-dance | cut | bind')
   })
 
+  it('should logout account once Log out button is clicked', () => {
+    cy.get('button').contains('Log out').click()
+      .url().should('eq', 'http://localhost:3000/login')
+      .get('h2').contains('Continue Adventure')
+  })
 })
