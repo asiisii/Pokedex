@@ -18,11 +18,20 @@ describe('Sign up', () => {
   })
 
   it('should be able to type in inputs and see value updated', () => {
-    cy.get('form input[type="email"]').type('test@gmail.com')
-      .should('have.value', 'test@gmail.com')
+    cy.get('form input[type="email"]').type('testing@gmail.com')
+      .should('have.value', 'testing@gmail.com')
       .get('form input[type="password"]').eq(0).type('123456')
       .should('have.value', '123456')
       .get('form input[type="password"]').eq(1).type('123456')
       .should('have.value', '123456')
+  })
+
+  it('should be able to fill out form, make new account, and redirect to home page', () => {
+    cy.get('form input[type="email"]').type('testing@gmail.com')
+      .get('form input[type="password"]').eq(0).type('123456')
+      .get('form input[type="password"]').eq(1).type('123456')
+      .get('button').click()
+      .url().should('eq', 'http://localhost:3000/')
+      .get('h1').eq(0).contains('Pokédex')
   })
 })
