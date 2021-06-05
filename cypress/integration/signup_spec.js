@@ -66,4 +66,12 @@ describe('Sign up', () => {
       .get('button').click()
       .get('h2').eq(1).contains('Passwords do not match')
   })
+
+  it('should return an error if @ symbol is left out of email', () => {
+    cy.get('form input[type="email"]').type('testinggmail.com')
+      .get('form input[type="password"]').eq(0).type('123456')
+      .get('form input[type="password"]').eq(1).type('123456')
+      .get('button').click()
+      .get('form input[type="email"]:invalid')
+  })
 })
