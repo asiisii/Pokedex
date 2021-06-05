@@ -69,5 +69,6 @@ describe('Login Page', () => {
   it('should redirect to sign up component when Sign Up is clicked', () => {
     cy.get('a').contains('Sign Up').click()
       .url().should('eq', 'http://localhost:3000/signup')
+      .get('h2').contains('Start your Adventure')
   })
 })
