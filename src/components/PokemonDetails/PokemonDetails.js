@@ -19,6 +19,7 @@ class PokemonDetails extends Component {
   componentDidMount = async () => {
     try {
       const fetchedPokemonDetails = await fetchPokemonData(`/${this.state.id}`)
+      console.log(fetchedPokemonDetails)
       this.setState({ pokemonDetails: getPokemonDetails(fetchedPokemonDetails)})
     } catch (e) {
       this.setState({error: 'Request failed'})
