@@ -20,4 +20,14 @@ describe('Login Page', () => {
       .get('form input[type="password"]').type('123456')
       .should('have.value', '123456')
   })
+
+  it('should be able to fill out form and redirect to homepage', () => {
+    cy.get('form input[type="email"]').type('test@gmail.com')
+      .should('have.value', 'test@gmail.com')
+      .get('form input[type="password"]').type('123456')
+      .should('have.value', '123456')
+      .get('button').click()
+      .url().should('eq', 'http://localhost:3000/')
+      .get('h1').eq(0).contains('Pokédex')
+  })
 })
