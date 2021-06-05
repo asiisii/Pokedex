@@ -7,7 +7,7 @@ describe('Detail page', () => {
       .get('form input[type="email"]').type('test@gmail.com')
       .get('form input[type="password"]').type('123456')
       .get('button').click()
-      .get('.pokemon-card').eq(0).click()
+      .get('div > .pokemon-card').eq(0).click()
   })
 
   it('should be on pokemon details page', () => {
