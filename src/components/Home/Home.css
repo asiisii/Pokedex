@@ -1,10 +1,12 @@
 .card-display {
   background-color: white;
   width: 95%;
-  display: grid;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  /* display: grid;
   grid-template-columns: repeat(5, 1fr);
-  grid-gap: 20px;
-  text-align: center;
+  grid-gap: 20px; */
   padding: 20px;
   min-height: 756px;
   border: 8px solid black;
@@ -13,3 +15,8 @@
 }
 
 /*~~~~~~MEDIA QUERIES~~~~~~*/
+/* @media screen and (max-width: 1600px) and (min-width: 1300px) {
+  .card-display {
+    grid-template-columns: repeat(4, 1fr);
+  }
+} */
