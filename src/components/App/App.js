@@ -34,6 +34,38 @@ const App = () => {
     setIsUser(!isUser)
   }
 
+  
+  const catchPokemon = (pokemonName) => {
+    console.log(pokemonName);
+    if(!caughtPokemon.includes(pokemonName)) {
+      setCaughtPokemon([...caughtPokemon, pokemonName])
+      // caughtPokemon.push(pokemonName)
+      console.log(caughtPokemon);
+    } else {
+      // const pokemonIndex = caughtPokemon.indexOf(pokemonName)
+      // caughtPokemon.splice(pokemonIndex, 1)
+      // console.log(caughtPokemon);
+      // console.log(pokemonIndex);
+     setCaughtPokemon(caughtPokemon.filter(poki => {
+        return poki !== pokemonName
+      }))
+      console.log(caughtPokemon);
+      // const a = setCaughtPokemon(a => {
+      //   a.filter((caughtPokemon, i) => i !== pokemonIndex)
+      // })
+      // console.log(a);
+      // return a
+    }
+    // if (!this.state.caughtPokemon.includes(pokemonName)) {
+      //   this.state.caughtPokemon.push(pokemonName);
+      // } else {
+        //   const pokemonIndex = this.state.caughtPokemon.indexOf(pokemonName)
+        //   this.state.caughtPokemon.splice(pokemonIndex, 1)
+        // }
+        // forceUpdate();
+      }
+      
+    
     // const { pokemons, error, caughtPokemon, isUser} = this.state
     return (
       <main>
