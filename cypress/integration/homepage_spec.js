@@ -58,7 +58,7 @@ describe("Home Page", () => {
       .get('h1').contains('bulbasaur')
   })
 
-  it('should logout account once button is clicked', () => {
+  it('should logout account once Log out button is clicked', () => {
     cy.wait(1000)
       .get('button').contains('Log out').click()
       .url().should('eq', 'http://localhost:3000/login')
