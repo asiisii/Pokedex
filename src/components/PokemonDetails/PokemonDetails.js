@@ -19,7 +19,6 @@ class PokemonDetails extends Component {
   componentDidMount = async () => {
     try {
       const fetchedPokemonDetails = await fetchPokemonData(`/${this.state.id}`)
-      console.log(fetchedPokemonDetails)
       this.setState({ pokemonDetails: getPokemonDetails(fetchedPokemonDetails)})
     } catch (e) {
       this.setState({error: 'Request failed'})
@@ -30,27 +29,28 @@ class PokemonDetails extends Component {
     const { pokemonDetails, id } = this.state;
     return(
       <>
-      <Navbar />
       {pokemonDetails &&
-        <section className="pokemon-info">
+        <section className={`pokemon-info ${pokemonDetails.types.split('|')[0]}`}>
           <div className="info-header">
             <Link to='/'><i className="fas fa-arrow-left"></i> Go back</Link>
-            <h1 className="pokemon-name" >{pokemonDetails.name}</h1>
+            <h1 className="pokemon-name" >{(pokemonDetails.name).toUpperCase()}</h1>
             <button className="pokeball" onClick={() => {
               this.props.favorite(pokemonDetails.name);
             }}>
               <img src={this.props.caught.includes(pokemonDetails.name) ? caughtBall : uncaughtBall} alt="pokeball"></img>
             </button>
           </div>
-          <div className="pokemon-holder">
-            <img src={`https://pokeres.bastionbot.org/images/pokemon/${id}.png`} alt={pokemonDetails.name} className='pokemon' />
-          </div>
-          <div className='pokemon-detail'>
-            <p>Weight: {pokemonDetails.weight}</p>
-            <p>Height: {pokemonDetails.height}</p>
-            <p>Types: {pokemonDetails.types}</p>
-            <p>Abilities: {pokemonDetails.ability}</p>
-            <p>Moves: {pokemonDetails.moves}</p>
+          <div className='pokemon-container'>
+            <div className="pokemon-holder">
+              <img src={`https://pokeres.bastionbot.org/images/pokemon/${id}.png`} alt={pokemonDetails.name} className='pokemon' />
+            </div>
+            <div className={`pokemon-detail ${pokemonDetails.types.split('|')[1]}`}>
+              <p>Weight: {pokemonDetails.weight}</p>
+              <p>Height: {pokemonDetails.height}</p>
+              <p>Types: {pokemonDetails.types}</p>
+              <p>Abilities: {pokemonDetails.ability}</p>
+              <p>Moves: {pokemonDetails.moves}</p>
+            </div>
           </div>
         </section>
       }
