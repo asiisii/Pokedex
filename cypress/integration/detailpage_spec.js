@@ -3,7 +3,11 @@ import {caughtBall, uncaughtBall} from '../fixtures/srcData'
 describe('Detail page', () => {
   beforeEach(() => {
     cy.interceptPokmemon()
-    cy.visit('/1')
+    cy.visit('http://localhost:3000/login')
+      .get('form input[type="email"]').type('test@gmail.com')
+      .get('form input[type="password"]').type('123456')
+      .get('button').click()
+      .get('.pokemon-card').eq(0).click()  
   })
 
   it('should be on pokemon details page', () => {
