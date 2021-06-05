@@ -31,11 +31,11 @@ describe('Caught Page', () => {
   it('should allow user to click pokeball and see favorited pokemon leave caught page', () => {
     cy.get('button').get('button > img').eq(0).click()
       .get('.card-display').children().should('have.length', 2)
-      .get('h1').eq(1).contains('ivysaur')
+      .get('h1').eq(3).contains('ivysaur')
   })
 
   it('should take user back to home page once clicked', () => {
-    cy.get('header > a').eq(0).click()
+    cy.get('div > a').eq(0).click()
       .url().should('eq', 'http://localhost:3000/')
   })
 })
