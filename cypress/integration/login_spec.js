@@ -50,4 +50,12 @@ describe('Login Page', () => {
       .wait(1000)
       .get('h2').eq(1).contains('Failed to sign in')
   })
+
+  it('should return error message if email is put in incorrectly', () => {
+    cy.get('form input[type="email"]').type('tt@gmail.com')
+      .get('form input[type="password"]').type('123456')
+      .get('button').click()
+      .wait(1000)
+      .get('h2').eq(1).contains('Failed to sign in')
+  })
 })
