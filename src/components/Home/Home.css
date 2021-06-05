@@ -7,6 +7,7 @@
   text-align: center;
   padding: 20px;
   min-height: 756px;
+  border: 8px solid black;
   border-bottom: solid 20px red;
   border-radius: 40px;
 }
