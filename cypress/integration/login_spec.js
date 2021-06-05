@@ -42,4 +42,12 @@ describe('Login Page', () => {
       .get('button').click()
       .get('form input[type="password"]:invalid')
   })
+
+  it('should return error message if password is put in incorrectly', () => {
+    cy.get('form input[type="email"]').type('test@gmail.com')
+      .get('form input[type="password"]').type('1')
+      .get('button').click()
+      .wait(1000)
+      .get('h2').eq(1).contains('Failed to sign in')
+  })
 })
