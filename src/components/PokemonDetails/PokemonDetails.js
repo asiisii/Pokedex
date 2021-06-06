@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom'
-import Navbar from '../Navbar/Navbar';
+
 import caughtBall from  '../../Assets/caughtBall.png'
 import fetchPokemonData  from '../../apiData/apiCalls';
 import uncaughtBall from '../../Assets/uncaughtBall.png'
@@ -10,6 +10,7 @@ import './PokemonDetails.css';
 const PokemonDetails = ({id, caught, favorite}) => {
   const [pokemonDetails, setPokemonDetails] = useState('')
   const [error, setError] = useState('')
+  const [pokemonFrom, setPokemonForm] = useState('')
 
   const fetchSinglePokemonInfo = async () => {
     try {
@@ -23,6 +24,10 @@ const PokemonDetails = ({id, caught, favorite}) => {
   useEffect(() => {
     fetchSinglePokemonInfo()
   }, [])
+
+  toggleShiny = () => {
+
+  }
 
   return(
     <>
