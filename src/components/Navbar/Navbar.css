@@ -32,6 +32,10 @@ a:hover {
   color: white;
 }
 
+.head-txt {
+  font-size: 20px;
+}
+
 .log-out {
   border: none;
   background: none;
@@ -54,6 +58,4 @@ a:hover {
   .log-out {
     font-size: 36px;
   }
-
-
 }
