@@ -3,7 +3,7 @@ import PokemonCard from '../PokemonCard/PokemonCard';
 import Navbar from '../Navbar/Navbar';
 import './Home.css';
 
-const Home = ({pokemons, caught, favorite}) =>{
+const Home = ({pokemons, caught, favorite, error}) =>{
   const cards = pokemons.map((pokemon, index) => {
     const getId = index + 1;
     const favoritePokemon = caught.includes(pokemon.name);
@@ -22,9 +22,13 @@ const Home = ({pokemons, caught, favorite}) =>{
   return (
     <>
     <Navbar />
-    <div className="card-display">
-    {cards}
-    </div>
+    {error && <h1>{error}</h1>}
+    {!caught && <h1 className='loading'>Loading...</h1>}
+    {caught &&
+      <div className="card-display">
+        {cards}
+      </div>
+     }
     </>
   )
 }
