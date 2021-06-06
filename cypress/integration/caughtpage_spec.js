@@ -21,7 +21,7 @@ describe('Caught Page', () => {
     cy.get('button').get('button > img').eq(0).click()
       .get('button').get('button > img').eq(0).click()
       .get('button').get('button > img').eq(0).click()
-
+      .get('.message').contains('You haven\'t')
   })
 
   it('should show navbar on load', () => {
