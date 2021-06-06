@@ -52,7 +52,7 @@ export default function Login() {
           <button disabled={loading} className='submit-button' type='submit'>Login</button>
         </form>
         <div>
-          <p className='switch'>Need an account? <Link to='/signup'>Sign Up</Link></p>
+          <p className='switch'>Become a Trainer? <Link to='/signup'>Sign Up</Link></p>
         </div>
       </div>
   )
