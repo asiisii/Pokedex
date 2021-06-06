@@ -68,7 +68,7 @@ describe('Detail page', () => {
       .get('h1').contains('IVYSAUR')
       .get('.pokemon-info')
       .find('img').eq(1)
-      .should('have.attr', 'src', 'https://pokeres.bastionbot.org/images/pokemon/2.png')
+      .should('have.attr', 'src', 'https://play.pokemonshowdown.com/sprites/xyani/ivysaur.gif')
       .get('p').eq(0)
       .contains('Weight: 130')
       .get('p').eq(1)
