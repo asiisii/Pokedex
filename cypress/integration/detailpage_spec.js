@@ -39,7 +39,7 @@ describe('Detail page', () => {
   it('should have bulbasaur info', () => {
     cy.get('.pokemon-info')
       .find('img').eq(1)
-      .should('have.attr', 'src', 'https://pokeres.bastionbot.org/images/pokemon/1.png')
+      .should('have.attr', 'src', 'https://play.pokemonshowdown.com/sprites/xyani/bulbasaur.gif')
       .get('p').eq(0)
       .contains('Weight: 69')
       .get('p').eq(1)
