@@ -7,23 +7,29 @@
 }
 
 .login-head {
-  width: 60%;
+  width: 560px;
   text-align: center;
   border-bottom: solid 2px #696969;
   padding-top: 20px;
 }
 
 .login > form {
+  margin-top: 80px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
   width: 50%;
   padding-top: 40px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
 
 /*~~~~~~MEDIA QUERIES~~~~~~*/
+@media screen and (max-width: 600px) {
+  .login {
+    width: 100%;
+  }
+
+  .login-head {
+    width: 100%;
+  }
+}

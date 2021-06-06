@@ -49,7 +49,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(145deg, #adadad, #cdcdcd);
+  background:#cdcdcd;
   border-radius: 32px;
   border: solid 2px black;
   width: 700px;
@@ -57,15 +57,35 @@
 }
 
 .pokemon {
-  width: 400px;
+  width: 200px;
   color: black;
 }
 
 .pokemon-holder {
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  width: 640px;
+  align-items: center;
   color: transparent;
+}
+
+.form-control {
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-control > button {
+  cursor: pointer;
+  border: 2px solid black;
+  border-radius: 24px;
+  font-size: 16px;
+  height: 50px;
+  
+}
+
+.form-control > button:hover {
+  background: white;
 }
 
 .grass {
@@ -141,3 +161,77 @@
 }
 
 /*~~~~~~MEDIA QUERIES~~~~~~*/
+@media screen and (min-width: 1024px) {
+  .pokemon-container {
+    flex-direction: row;
+  }
+
+  .pokemon {
+    width: 400px;
+  }
+
+  .pokemon-detail {
+    width: 700px;
+  }
+
+  .pokemon-holder {
+    width: 640px;
+  }
+
+  .form-control {
+    width: 50%;
+  }
+}
+
+@media screen and (min-width: 800px) and (max-width: 1024px) {
+  .pokemon-container {
+    flex-direction: row;
+  }
+
+  .pokemon {
+    width: 300px;
+  }
+
+  .pokemon-detail {
+    width: 700px;
+  }
+
+  .pokemon-holder {
+    width: 640px;
+  }
+
+  .form-control {
+    width: 75%;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .pokemon-container {
+    flex-direction: column;
+  }
+
+  .pokemon {
+    width: 160px;
+  }
+
+  .pokemon-detail {
+    width: 95%;
+  }
+
+  .pokeball {
+    width: 54px;
+    height: 48px;
+  }
+
+  .pokeball>img {
+    width: 44px;
+  }
+
+  .form-control {
+    width: 130%;
+  }
+
+  .pokemon-holder {
+    flex-direction: column-reverse;
+  }
+}

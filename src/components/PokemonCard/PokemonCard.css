@@ -1,10 +1,10 @@
 .pokemon-card {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   width: 45%;
-  height: 370px;
+  height: 200px;
   border-radius: 20px;
   background: linear-gradient(145deg, #adadad, #cdcdcd);
   border: solid 2px black;
@@ -17,7 +17,6 @@
   transform: scale(1.03);
 }
 
-
 .pokemon-card > a {
   text-decoration: none;
   color: black;
@@ -25,36 +24,120 @@
 
 .pokemon-pic {
   margin-top: 12px;
-  width: 160px;
+  width: 100px;
 }
 
 .pokemon-card > button {
-  margin-left: 75%;
-  margin-top: 12px;
-  width: 75px;
-  height: 75px;
+  align-self: flex-end;
+  width: 54px;
+  height: 48px;
 }
 
 .pokemon-card > button > img {
-  width: 60px;
+  width: 44px;
+}
+
+.pokemon-card > a > h1 {
+  font-size: 16px;
 }
 
 /*~~~~~~MEDIA QUERIES~~~~~~*/
 @media screen and (min-width: 1600px) {
   .pokemon-card {
     width: 18%;
+    height: 370px;
+  }
+
+  .pokemon-pic {
+    width: 160px;
+  }
+
+  .pokemon-card > a> h1 {
+    font-size: 32px;
+  }
+
+  .pokemon-card > button {
+    align-self: flex-end;
+    width: 75px;
+    height: 75px;
+  }
+
+  .pokemon-card > button > img {
+    width: 60px;
   }
 }
 
 @media screen and (max-width: 1600px) and (min-width: 1200px) {
   .pokemon-card {
     width: 24%;
+    height: 370px;
+  }
+
+  .pokemon-pic {
+    width: 160px;
+  }
+
+  .pokemon-card > a > h1 {
+    font-size: 28px;
+  }
+
+  .pokemon-card>button {
+    align-self: flex-end;
+    width: 75px;
+    height: 75px;
+  }
+
+  .pokemon-card>button>img {
+    width: 60px;
   }
 }
 
 @media screen and (max-width:1200px) and (min-width: 800px) {
   .pokemon-card {
     width: 32%;
+    height: 370px;
+  }
+
+  .pokemon-pic {
+    width: 160px;
+  }
+
+  .pokemon-card>a>h1 {
+    font-size: 24px;
+  }
+
+  .pokemon-card>button {
+    align-self: flex-end;
+    width: 75px;
+    height: 75px;
+  }
+
+  .pokemon-card>button>img {
+    width: 60px;
+  }
+}
+
+@media screen and (max-width: 800px) and (min-width: 425px) {
+  .pokemon-card {
+    height: 370px;
+  }
+
+  .pokemon-pic {
+    width: 160px;
+  }
+
+  .pokemon-card > a > h1 {
+    font-size: 24px;
+  }
+
+  .pokemon-card>button {
+    align-self: flex-end;
+    width: 75px;
+    height: 75px;
+  }
+
+  .pokemon-card>button>img {
+    width: 60px;
   }
 }
 

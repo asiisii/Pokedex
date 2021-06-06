@@ -18,16 +18,16 @@ export default function Navbar() {
 
   return (
     <header>
-      <h1>Pokédex</h1>
+      <h1 className='header-txt'>Pokédex</h1>
       <div>
         <NavLink activeStyle={{
           color: 'white',
           fontWeight: 'bold'
-        }} to='/' exact={true}><h1>Home</h1></NavLink>
+        }} to='/' exact={true}><h1 className='head-txt'>Home</h1></NavLink>
         <NavLink activeStyle={{
           color: 'white',
           fontWeight: 'bold'
-        }} to='/caught'><h1>Show Caught</h1></NavLink>
+        }} to='/caught'><h1 className='head-txt'>Show Caught</h1></NavLink>
         <button className='log-out' onClick={handleLogout}>Log out</button>
       </div>
     </header>

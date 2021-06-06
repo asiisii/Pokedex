@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom'
-import Navbar from '../Navbar/Navbar';
+
 import caughtBall from  '../../Assets/caughtBall.png'
 import fetchPokemonData  from '../../apiData/apiCalls';
 import uncaughtBall from '../../Assets/uncaughtBall.png'
@@ -10,11 +10,13 @@ import './PokemonDetails.css';
 const PokemonDetails = ({id, caught, favorite}) => {
   const [pokemonDetails, setPokemonDetails] = useState('')
   const [error, setError] = useState('')
+  const [pokemonForm, setPokemonForm] = useState(``)
 
   const fetchSinglePokemonInfo = async () => {
     try {
       const fetchedPokemonDetails = await fetchPokemonData(`/${id}`)
       setPokemonDetails(getPokemonDetails(fetchedPokemonDetails))
+      setPokemonForm(`https://play.pokemonshowdown.com/sprites/xyani/${fetchedPokemonDetails.name}.gif`)
     } catch (e) {
       setError('Request failed')
     }
@@ -23,6 +25,14 @@ const PokemonDetails = ({id, caught, favorite}) => {
   useEffect(() => {
     fetchSinglePokemonInfo()
   }, [])
+
+  const regularForm = () => {
+    setPokemonForm(`https://play.pokemonshowdown.com/sprites/xyani/${pokemonDetails.name}.gif`)
+  }
+
+  const shinyFrom = () => {
+    setPokemonForm(`https://play.pokemonshowdown.com/sprites/ani-shiny/${pokemonDetails.name}.gif`)
+  }
 
   return(
     <>
@@ -44,8 +54,12 @@ const PokemonDetails = ({id, caught, favorite}) => {
           </div>
           <div className='pokemon-container'>
             <div className="pokemon-holder">
+              <div className='form-control'>
+                <button onClick={regularForm} className={`${pokemonDetails.types.split('|')[1]}`}>Regular Form</button>
+                <button onClick={shinyFrom} className={`${pokemonDetails.types.split('|')[1]}`}>Shiny Form</button>
+              </div>
               {pokemonDetails.name === 'nidoran-m' ? pokemonDetails.name = 'nidoran' : null}
-              <img src={`https://play.pokemonshowdown.com/sprites/xyani/${pokemonDetails.name}.gif`} alt={pokemonDetails.name} className='pokemon' />
+              <img src={pokemonForm} alt={pokemonDetails.name} className='pokemon' />
             </div>
             <div className={`pokemon-detail ${pokemonDetails.types.split('|')[1]}`}>
               <p>Weight: {pokemonDetails.weight}</p>

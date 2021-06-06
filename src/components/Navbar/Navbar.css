@@ -6,8 +6,8 @@ header {
   align-items: center;
 }
 
-header > h1 {
-  font-size: 60px;
+.header-txt {
+  font-size: 40px;
   margin: 12px;
   color: white;
 }
@@ -32,10 +32,14 @@ a:hover {
   color: white;
 }
 
+.head-txt {
+  font-size: 20px;
+}
+
 .log-out {
   border: none;
   background: none;
-  font-size: 36px;
+  font-size: 20px;
   font-weight: bold;
   color: #cdcdcd;
   cursor: pointer;
@@ -46,3 +50,12 @@ a:hover {
 }
 
 /*~~~~~~MEDIA QUERIES~~~~~~*/
+@media screen and (min-width: 600px) {
+  .header-txt {
+    font-size: 60px;
+  }
+  .head-txt,
+  .log-out {
+    font-size: 36px;
+  }
+}
