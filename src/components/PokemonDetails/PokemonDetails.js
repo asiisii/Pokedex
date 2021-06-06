@@ -22,13 +22,19 @@ const PokemonDetails = ({id, caught, favorite}) => {
   }
 
   useEffect(() => {
-    fetchSinglePokemonInfo(id)
+    let mounted = true
+  if (mounted) {
+    fetchSinglePokemonInfo()
+  }
+    return () => {
+      mounted = false
+    }
   })
 
   return(
     <>
       <Navbar />
-      {!pokemonDetails && !error && <h1>Loading...catching Pokemons</h1>}
+      {!pokemonDetails && !error && <h1 className='loading'>Loading...catching Pokemons</h1>}
       {error && <h1>{error}</h1>}
       {pokemonDetails && !error &&
         <section className={`pokemon-info ${pokemonDetails.types.split('|')[0]}`}>
