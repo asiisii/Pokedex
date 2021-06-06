@@ -56,7 +56,7 @@ describe('Login Page', () => {
       .get('form input[type="password"]').type('123456')
       .get('button').click()
       .wait(1000)
-      .get('h2').eq(1).contains('Failed to sign in')
+      .get('h2').eq(1).contains('Email or password is incorrect')
   })
 
   it('should return an error if @ symbol is left out of email', () => {
