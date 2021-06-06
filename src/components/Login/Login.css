@@ -14,16 +14,13 @@
 }
 
 .login > form {
+  margin-top: 80px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
   width: 50%;
   padding-top: 40px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
 
 /*~~~~~~MEDIA QUERIES~~~~~~*/
