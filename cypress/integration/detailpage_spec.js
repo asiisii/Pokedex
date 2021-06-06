@@ -14,6 +14,11 @@ describe('Detail page', () => {
     cy.url().should('eq', 'http://localhost:3000/1')
   })
 
+  it.only('should display loading msg while retreving pokemon info', () => {
+
+    cy.contains('Loading...catching Pokemons')
+  })
+
   it('should have header contents', () => {
     cy.get('header')
       .get('a').eq(0).contains('Home')
