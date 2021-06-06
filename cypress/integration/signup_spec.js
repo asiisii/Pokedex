@@ -27,7 +27,8 @@ describe('Sign up', () => {
   })
 
   it.skip('should be able to fill out form, make new account, and redirect to home page', () => {
-    cy.get('form input[type="email"]').type('testing@gmail.com')
+    const getId = new Date().valueOf()
+    cy.get('form input[type="email"]').type(`testing@gmail.com`)
       .get('form input[type="password"]').eq(0).type('123456')
       .get('form input[type="password"]').eq(1).type('123456')
       .get('button').click()
