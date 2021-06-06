@@ -1,5 +1,6 @@
 describe('Login Page', () => {
   beforeEach(() => {
+    cy.interceptPokmemon()
     cy.visit('http://localhost:3000/login')
   })
 
@@ -48,7 +49,7 @@ describe('Login Page', () => {
       .get('form input[type="password"]').type('1')
       .get('button').click()
       .wait(1000)
-      .get('h2').eq(1).contains('Failed to sign in')
+      .get('h2').eq(1).contains('Email or password is incorrect')
   })
 
   it('should return error message if email is put in incorrectly', () => {
@@ -56,7 +57,7 @@ describe('Login Page', () => {
       .get('form input[type="password"]').type('123456')
       .get('button').click()
       .wait(1000)
-      .get('h2').eq(1).contains('Failed to sign in')
+      .get('h2').eq(1).contains('Email or password is incorrect')
   })
 
   it('should return an error if @ symbol is left out of email', () => {
@@ -71,4 +72,18 @@ describe('Login Page', () => {
       .url().should('eq', 'http://localhost:3000/signup')
       .get('h2').contains('Start your Adventure')
   })
+})
+
+describe('Error', () => {
+  it('should display error message for 404 status code', () => {
+    cy.intercept('https://pokeapi.co/api/v2/pokemon?limit=151', {
+      statusCode: 404
+    })
+    cy.visit('http://localhost:3000/login')
+      .get('form input[type="email"]').type('test@gmail.com')
+      .get('form input[type="password"]').type('123456')
+      .get('button').click()
+      .get('h1').contains('Request failed')
+  })
+  
 })

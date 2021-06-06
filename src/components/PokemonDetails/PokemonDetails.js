@@ -13,6 +13,7 @@ const PokemonDetails = ({id, caught, favorite}) => {
   const [pokemonForm, setPokemonForm] = useState(``)
 
   const fetchSinglePokemonInfo = async () => {
+    setError('')
     try {
       const fetchedPokemonDetails = await fetchPokemonData(`/${id}`)
       setPokemonDetails(getPokemonDetails(fetchedPokemonDetails))
@@ -23,8 +24,14 @@ const PokemonDetails = ({id, caught, favorite}) => {
   }
 
   useEffect(() => {
+    let mounted = true
+  if (mounted) {
     fetchSinglePokemonInfo()
-  }, [])
+  }
+    return () => {
+      mounted = false
+    }
+  })
 
   const regularForm = () => {
     setPokemonForm(`https://play.pokemonshowdown.com/sprites/xyani/${pokemonDetails.name}.gif`)
@@ -36,7 +43,10 @@ const PokemonDetails = ({id, caught, favorite}) => {
 
   return(
     <>
-      {pokemonDetails &&
+      <Navbar />
+      {!pokemonDetails && !error && <h1 className='loading'>Loading...catching Pokemons</h1>}
+      {error && <h1>{error}</h1>}
+      {pokemonDetails && !error &&
         <section className={`pokemon-info ${pokemonDetails.types.split('|')[0]}`}>
           <div className="info-header">
             <Link to='/'>

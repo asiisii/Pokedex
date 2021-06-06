@@ -3,7 +3,7 @@ import {caughtBall, uncaughtBall} from '../fixtures/srcData'
 describe('Detail page', () => {
   beforeEach(() => {
     cy.interceptPokmemon()
-    cy.visit('http://localhost:3000/login')
+      .visit('http://localhost:3000/login')
       .get('form input[type="email"]').type('test@gmail.com')
       .get('form input[type="password"]').type('123456')
       .get('button').click()
@@ -12,6 +12,14 @@ describe('Detail page', () => {
 
   it('should be on pokemon details page', () => {
     cy.url().should('eq', 'http://localhost:3000/1')
+  })
+
+  it('should display loading msg while retreving pokemon info', () => {
+    cy.get('body').then(body => {
+      if(body.get('.loading')) {
+        cy.contains('Loading...catching Pokemons')
+      }
+    })
   })
 
   it('should have header contents', () => {
@@ -25,7 +33,7 @@ describe('Detail page', () => {
   it('should have info header', () => {
     cy.get('.info-header > a')
       .contains('Go back')
-      .get('h1').contains('bulbasaur')
+      .get('h1').contains('BULBASAUR')
       .get('img').eq(0)
       .should('have.attr', 'src', uncaughtBall)
   })
@@ -39,7 +47,7 @@ describe('Detail page', () => {
   it('should have bulbasaur info', () => {
     cy.get('.pokemon-info')
       .find('img').eq(1)
-      .should('have.attr', 'src', 'https://pokeres.bastionbot.org/images/pokemon/1.png')
+      .should('have.attr', 'src', 'https://play.pokemonshowdown.com/sprites/xyani/bulbasaur.gif')
       .get('p').eq(0)
       .contains('Weight: 69')
       .get('p').eq(1)
@@ -65,10 +73,10 @@ describe('Detail page', () => {
       .get('.pokemon-card').eq(1).click()
       .url().should('eq', 'http://localhost:3000/2')
       .get('.info-header > a')
-      .get('h1').contains('ivysaur')
+      .get('h1').contains('IVYSAUR')
       .get('.pokemon-info')
       .find('img').eq(1)
-      .should('have.attr', 'src', 'https://pokeres.bastionbot.org/images/pokemon/2.png')
+      .should('have.attr', 'src', 'https://play.pokemonshowdown.com/sprites/xyani/ivysaur.gif')
       .get('p').eq(0)
       .contains('Weight: 130')
       .get('p').eq(1)

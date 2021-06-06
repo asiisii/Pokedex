@@ -2,7 +2,8 @@ import {caughtBall} from '../fixtures/srcData'
 
 describe('Caught Page', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3000/login')
+    cy.interceptPokmemon()
+      .visit('http://localhost:3000/login')
       .get('form input[type="email"]').type('test@gmail.com')
       .get('form input[type="password"]').type('123456')
       .get('button').click()
@@ -14,6 +15,13 @@ describe('Caught Page', () => {
 
   it('should show url change to caught pokemon section', () => {
     cy.url().should('eq', 'http://localhost:3000/caught')
+  })
+
+  it('should let user know page is empty', () => {
+    cy.get('button').get('button > img').eq(0).click()
+      .get('button').get('button > img').eq(0).click()
+      .get('button').get('button > img').eq(0).click()
+      .get('.message').contains('You haven\'t')
   })
 
   it('should show navbar on load', () => {

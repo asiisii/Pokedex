@@ -26,8 +26,9 @@ describe('Sign up', () => {
       .should('have.value', '123456')
   })
 
-  it.skip('should be able to fill out form, make new account, and redirect to home page', () => {
-    cy.get('form input[type="email"]').type('testing@gmail.com')
+  it('should be able to fill out form, make new account, and redirect to home page', () => {
+    const getId = new Date().valueOf()
+    cy.get('form input[type="email"]').type(`testing${getId}@gmail.com`)
       .get('form input[type="password"]').eq(0).type('123456')
       .get('form input[type="password"]').eq(1).type('123456')
       .get('button').click()
@@ -74,10 +75,20 @@ describe('Sign up', () => {
       .get('button').click()
       .get('form input[type="email"]:invalid')
   })
-
+  
+  it.only('should say loading while retreving the data', () => {
+    cy.get('a').contains('Login').click()
+      .get('body').then(body => {
+        if(body.get('.loading')) {
+          cy.contains('Loading...')
+        }
+      })
+  })
+  
   it('should redirect to login component when Login is clicked', () => {
     cy.get('a').contains('Login').click()
       .url().should('eq', 'http://localhost:3000/login')
       .get('h2').contains('Continue Adventure')
   })
+
 })

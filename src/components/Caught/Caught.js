@@ -5,7 +5,7 @@ import PokemonCard from '../PokemonCard/PokemonCard';
 import Navbar from '../Navbar/Navbar';
 
 
-export default function Caught({pokemons, caught, favorite}) {
+export default function Caught({pokemons, caught, favorite, error}) {
   const caughtPokemon = pokemons.filter(critter => caught.includes(critter.name))
   const caughtPokemonCards = caughtPokemon.map((pokemon, index) => {
     const getId = pokemon.url.split('/')[6];
@@ -24,10 +24,14 @@ export default function Caught({pokemons, caught, favorite}) {
   })
   return (
     <>
-    <Navbar />
-    <div className="card-display">
-    {caughtPokemonCards}
-    </div>
+      <Navbar />
+      {error && <h1>{error}</h1>}
+      {!caught.length && !error && <h1 className="message">You haven't caught any pokemons</h1>}
+      {caught.length &&
+        <div className="card-display">
+        {caughtPokemonCards}
+        </div>
+      }
     </>
   )
 }

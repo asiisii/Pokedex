@@ -55,7 +55,7 @@ describe("Home Page", () => {
     cy.get('.pokemon-card').eq(0).click()
       .url().should('eq', 'http://localhost:3000/1')
       .wait(1000)
-      .get('h1').contains('bulbasaur')
+      .get('h1').contains('BULBASAUR')
   })
 
   it('should logout account once Log out button is clicked', () => {
