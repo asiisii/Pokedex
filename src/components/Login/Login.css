@@ -27,3 +27,12 @@
 }
 
 /*~~~~~~MEDIA QUERIES~~~~~~*/
+@media screen and (max-width: 600px) {
+  .login {
+    width: 100%;
+  }
+
+  .login-head {
+    width: 100%;
+  }
+}
