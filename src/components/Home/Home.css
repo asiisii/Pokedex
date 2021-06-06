@@ -1,12 +1,14 @@
 .card-display {
   background-color: white;
   width: 95%;
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-gap: 20px;
-  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
   padding: 20px;
   min-height: 756px;
+  border: 8px solid black;
   border-bottom: solid 20px red;
   border-radius: 40px;
 }
+
+/*~~~~~~MEDIA QUERIES~~~~~~*/

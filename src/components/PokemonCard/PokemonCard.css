@@ -3,11 +3,13 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  max-height: 370px;
+  width: 45%;
+  height: 370px;
   border-radius: 20px;
   background: linear-gradient(145deg, #adadad, #cdcdcd);
   border: solid 2px black;
+  margin-top: 20px;
+  text-align: center;
 }
 
 .pokemon-card:hover {
@@ -27,13 +29,32 @@
 }
 
 .pokemon-card > button {
-  margin-left: 180px;
+  margin-left: 75%;
   margin-top: 12px;
-  width: 104px;
-  height: 100px;
+  width: 75px;
+  height: 75px;
 }
 
 .pokemon-card > button > img {
-  float: right;
-  width: 88px;
+  width: 60px;
 }
+
+/*~~~~~~MEDIA QUERIES~~~~~~*/
+@media screen and (min-width: 1600px) {
+  .pokemon-card {
+    width: 18%;
+  }
+}
+
+@media screen and (max-width: 1600px) and (min-width: 1200px) {
+  .pokemon-card {
+    width: 24%;
+  }
+}
+
+@media screen and (max-width:1200px) and (min-width: 800px) {
+  .pokemon-card {
+    width: 32%;
+  }
+}
+

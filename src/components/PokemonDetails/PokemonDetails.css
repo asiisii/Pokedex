@@ -1,31 +1,46 @@
 .pokemon-info {
-  background: white;
+  margin: auto;
+  min-height: 712px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   width: 95%;
+  border: 8px solid black;
+  border-radius: 40px;
 }
 
 .info-header {
   width: 100%;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
 }
 
+.info-header > a {
+  margin-left: 3%;
+}
+
 .pokeball {
-  width: 180px;
-  height: 180px;
+  width: 120px;
+  height: 120px;
   border-radius: 150px;
   margin-top: 20px;
   border: none;
   background: #ffffff;
+  margin-right: 3%;
+}
+
+.pokemon-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
 .pokeball > img {
   cursor: pointer;
-  width: 140px;
+  width: 112px;
   border-radius: 150px;
 }
 
@@ -35,20 +50,94 @@
   justify-content: center;
   align-items: center;
   background: linear-gradient(145deg, #adadad, #cdcdcd);
-  border-radius: 32px 32px 0 0;
+  border-radius: 32px;
   border: solid 2px black;
   width: 700px;
   text-align: center;
 }
 
 .pokemon {
-  width: 360px;
+  width: 400px;
+  color: black;
 }
 
 .pokemon-holder {
   display: flex;
   justify-content: center;
   width: 640px;
-  /* border: solid 1px black; */
-  /* background: grey; */
+  color: transparent;
 }
+
+.grass {
+  background: #8CD750;
+}
+
+.fire {
+  background: #FA5643;
+}
+
+.water {
+  background: #56ADFF;
+}
+
+.normal {
+  background: #BABAAE;
+}
+
+.fighting {
+  background: #A75543;
+}
+
+.flying {
+  background: #78A2FF;
+}
+
+.poison {
+  background: #A95CA0;
+}
+
+.ground {
+  background: #EECC55;
+}
+
+.rock {
+  background: #CCBD72;
+}
+
+.bug {
+  background: #C2D21E;
+}
+
+.ghost {
+  background: #7975D7;
+}
+
+.steel {
+  background: #C4C2DB;
+}
+
+.electric {
+  background: #FDE139;
+}
+
+.psychic {
+  background: #FA65B4;
+}
+
+.ice {
+  background: #96F1FF;
+}
+
+.dragon {
+  background: #8673FF;
+}
+
+.dark {
+  background: #8D6855;
+}
+
+.fairy {
+  background: #F9AEFF;
+}
+
+/*~~~~~~MEDIA QUERIES~~~~~~*/
