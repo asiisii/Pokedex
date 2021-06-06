@@ -12,6 +12,7 @@ const PokemonDetails = ({id, caught, favorite}) => {
   const [error, setError] = useState('')
 
   const fetchSinglePokemonInfo = async () => {
+    setError('')
     try {
       const fetchedPokemonDetails = await fetchPokemonData(`/${id}`)
       setPokemonDetails(getPokemonDetails(fetchedPokemonDetails))
@@ -21,12 +22,15 @@ const PokemonDetails = ({id, caught, favorite}) => {
   }
 
   useEffect(() => {
-    fetchSinglePokemonInfo()
-  }, [])
+    fetchSinglePokemonInfo(id)
+  })
 
   return(
     <>
-      {pokemonDetails &&
+      <Navbar />
+      {!pokemonDetails && !error && <h1>Loading...catching Pokemons</h1>}
+      {error && <h1>{error}</h1>}
+      {pokemonDetails && !error &&
         <section className={`pokemon-info ${pokemonDetails.types.split('|')[0]}`}>
           <div className="info-header">
             <Link to='/'>

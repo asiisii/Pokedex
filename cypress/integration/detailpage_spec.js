@@ -25,7 +25,7 @@ describe('Detail page', () => {
   it('should have info header', () => {
     cy.get('.info-header > a')
       .contains('Go back')
-      .get('h1').contains('bulbasaur')
+      .get('h1').contains('BULBASAUR')
       .get('img').eq(0)
       .should('have.attr', 'src', uncaughtBall)
   })
