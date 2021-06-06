@@ -26,7 +26,7 @@ export default function Caught({pokemons, caught, favorite, error}) {
     <>
       <Navbar />
       {error && <h1>{error}</h1>}
-      
+      {!caught.length && !error && <h1>You haven't caught any pokemons</h1>}
       {caught.length &&
         <div className="card-display">
         {caughtPokemonCards}
