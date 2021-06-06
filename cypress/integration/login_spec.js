@@ -80,9 +80,10 @@ describe('Error', () => {
       statusCode: 404
     })
     cy.visit('http://localhost:3000/login')
-    cy.get('form input[type="email"]').type('test@gmail.com')
+      .get('form input[type="email"]').type('test@gmail.com')
       .get('form input[type="password"]').type('123456')
       .get('button').click()
       .get('h1').contains('Request failed')
   })
+  
 })
