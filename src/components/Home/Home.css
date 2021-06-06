@@ -3,7 +3,7 @@
   width: 95%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: space-between;
   padding: 20px;
   min-height: 756px;
   border: 8px solid black;
@@ -12,6 +12,3 @@
 }
 
 /*~~~~~~MEDIA QUERIES~~~~~~*/
-@media screen and (max-width: 1600px) and (min-width: 1300px) {
-
-}

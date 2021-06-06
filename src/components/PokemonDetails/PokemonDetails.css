@@ -58,12 +58,14 @@
 
 .pokemon {
   width: 400px;
+  color: black;
 }
 
 .pokemon-holder {
   display: flex;
   justify-content: center;
   width: 640px;
+  color: transparent;
 }
 
 .grass {

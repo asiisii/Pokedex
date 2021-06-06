@@ -3,7 +3,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 18%;
+  width: 45%;
   height: 370px;
   border-radius: 20px;
   background: linear-gradient(145deg, #adadad, #cdcdcd);
@@ -29,7 +29,7 @@
 }
 
 .pokemon-card > button {
-  margin-left: 232px;
+  margin-left: 75%;
   margin-top: 12px;
   width: 75px;
   height: 75px;
@@ -40,3 +40,21 @@
 }
 
 /*~~~~~~MEDIA QUERIES~~~~~~*/
+@media screen and (min-width: 1600px) {
+  .pokemon-card {
+    width: 18%;
+  }
+}
+
+@media screen and (max-width: 1600px) and (min-width: 1200px) {
+  .pokemon-card {
+    width: 24%;
+  }
+}
+
+@media screen and (max-width:1200px) and (min-width: 800px) {
+  .pokemon-card {
+    width: 32%;
+  }
+}
+

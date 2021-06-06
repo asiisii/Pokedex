@@ -44,6 +44,7 @@ const PokemonDetails = ({id, caught, favorite}) => {
           </div>
           <div className='pokemon-container'>
             <div className="pokemon-holder">
+              {pokemonDetails.name === 'nidoran-m' ? pokemonDetails.name = 'nidoran' : null}
               <img src={`https://play.pokemonshowdown.com/sprites/xyani/${pokemonDetails.name}.gif`} alt={pokemonDetails.name} className='pokemon' />
             </div>
             <div className={`pokemon-detail ${pokemonDetails.types.split('|')[1]}`}>
