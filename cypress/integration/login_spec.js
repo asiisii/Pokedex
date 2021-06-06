@@ -48,7 +48,7 @@ describe('Login Page', () => {
       .get('form input[type="password"]').type('1')
       .get('button').click()
       .wait(1000)
-      .get('h2').eq(1).contains('Failed to sign in')
+      .get('h2').eq(1).contains('Email or password is incorrect')
   })
 
   it('should return error message if email is put in incorrectly', () => {
