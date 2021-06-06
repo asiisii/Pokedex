@@ -29,15 +29,14 @@
 }
 
 .pokemon-card > button {
-  margin-left: 180px;
+  margin-left: 232px;
   margin-top: 12px;
-  width: 104px;
-  height: 100px;
+  width: 75px;
+  height: 75px;
 }
 
 .pokemon-card > button > img {
-  float: right;
-  width: 88px;
+  width: 60px;
 }
 
 /*~~~~~~MEDIA QUERIES~~~~~~*/
