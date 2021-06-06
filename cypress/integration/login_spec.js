@@ -1,5 +1,6 @@
 describe('Login Page', () => {
   beforeEach(() => {
+    cy.interceptPokmemon()
     cy.visit('http://localhost:3000/login')
   })
 
