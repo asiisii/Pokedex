@@ -7,7 +7,7 @@
 }
 
 .signup-head {
-  width: 60%;
+  width: 560px;
   text-align: center;
   border-bottom: solid 2px #696969;
   padding-top: 20px;
@@ -55,7 +55,7 @@
 .submit-button {
   font-size: 20px;
   outline: none;
-  width: 50%;
+  width: 220px;
   height: 60px;
   border-radius: 50px;
   cursor: pointer;
@@ -79,3 +79,15 @@
 }
 
 /*~~~~~~MEDIA QUERIES~~~~~~*/
+@media screen and (max-width: 600px) {
+  .signup {
+    width: 100%;
+  }
+  .signup-head {
+    width: 100%;
+  }
+
+  .txt-feild>label {
+    width: 300px;
+  }
+}
