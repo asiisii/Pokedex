@@ -3,7 +3,7 @@ import {caughtBall, uncaughtBall} from '../fixtures/srcData'
 describe('Detail page', () => {
   beforeEach(() => {
     cy.interceptPokmemon()
-    cy.visit('http://localhost:3000/login')
+      .visit('http://localhost:3000/login')
       .get('form input[type="email"]').type('test@gmail.com')
       .get('form input[type="password"]').type('123456')
       .get('button').click()
