@@ -28,7 +28,7 @@ export default function Navbar() {
           color: 'white',
           fontWeight: 'bold'
         }} to='/caught'><h1>Show Caught</h1></NavLink>
-        <button onClick={handleLogout}>Log out</button>
+        <button className='log-out' onClick={handleLogout}>Log out</button>
       </div>
     </header>
   )

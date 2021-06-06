@@ -37,7 +37,8 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-
+  color: white;
+  font-weight: bold
 }
 
 .txt-feild > label > input {
@@ -70,5 +71,11 @@
 
 .switch {
   font-size: 20px;
-  color: #cdcdcd;
+  font-weight: bold;
 }
+
+.switch > a {
+  color: #E8E8E8;
+}
+
+/*~~~~~~MEDIA QUERIES~~~~~~*/
