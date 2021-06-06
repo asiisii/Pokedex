@@ -65,7 +65,7 @@ export default function Signup() {
           <button disabled={loading} className='submit-button' type='submit'>Sign Up</button>
         </form>
         <div>
-          <p className='switch'>Already have an account? <Link to='/login'>Login</Link></p>
+          <p className='switch'>Already a Trainer? <Link to='/login'>Login</Link></p>
         </div>
       </div>
   )
