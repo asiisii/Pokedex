@@ -20,7 +20,7 @@ const App = () => {
     if(!caughtPokemon.includes(pokemonName)) {
       setCaughtPokemon([...caughtPokemon, pokemonName])
     } else {
-     setCaughtPokemon(caughtPokemon.filter(poki => {
+      setCaughtPokemon(caughtPokemon.filter(poki => {
         return poki !== pokemonName
       }))
     }
