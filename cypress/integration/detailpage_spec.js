@@ -14,9 +14,12 @@ describe('Detail page', () => {
     cy.url().should('eq', 'http://localhost:3000/1')
   })
 
-  it.only('should display loading msg while retreving pokemon info', () => {
-
-    cy.contains('Loading...catching Pokemons')
+  it('should display loading msg while retreving pokemon info', () => {
+    cy.get('body').then(body => {
+      if(body.get('.loading')) {
+        cy.contains('Loading...catching Pokemons')
+      }
+    })
   })
 
   it('should have header contents', () => {
