@@ -1,6 +1,5 @@
 .card-display {
   background-color: white;
-  width: 95%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -12,3 +11,8 @@
 }
 
 /*~~~~~~MEDIA QUERIES~~~~~~*/
+@media screen and (min-width: 1200px) {
+  .card-display {
+    width: 95%;
+  }
+}
