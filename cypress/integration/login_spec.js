@@ -73,3 +73,12 @@ describe('Login Page', () => {
       .get('h2').contains('Start your Adventure')
   })
 })
+
+describe.only('Error', () => {
+  it('should display error message for 404 status code', () => {
+    cy.intercept('https://pokeapi.co/api/v2/pokemon?limit=151', {
+      statusCode: 404
+    })
+    
+  })
+})
