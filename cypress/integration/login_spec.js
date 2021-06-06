@@ -74,11 +74,15 @@ describe('Login Page', () => {
   })
 })
 
-describe.only('Error', () => {
+describe('Error', () => {
   it('should display error message for 404 status code', () => {
     cy.intercept('https://pokeapi.co/api/v2/pokemon?limit=151', {
       statusCode: 404
     })
-    
+    cy.visit('http://localhost:3000/login')
+    cy.get('form input[type="email"]').type('test@gmail.com')
+      .get('form input[type="password"]').type('123456')
+      .get('button').click()
+      .get('h1').contains('Request failed')
   })
 })
