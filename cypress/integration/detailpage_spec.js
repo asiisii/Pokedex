@@ -65,7 +65,7 @@ describe('Detail page', () => {
       .get('.pokemon-card').eq(1).click()
       .url().should('eq', 'http://localhost:3000/2')
       .get('.info-header > a')
-      .get('h1').contains('ivysaur')
+      .get('h1').contains('IVYSAUR')
       .get('.pokemon-info')
       .find('img').eq(1)
       .should('have.attr', 'src', 'https://pokeres.bastionbot.org/images/pokemon/2.png')
