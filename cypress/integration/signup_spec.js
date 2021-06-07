@@ -75,8 +75,8 @@ describe('Sign up', () => {
       .get('button').click()
       .get('form input[type="email"]:invalid')
   })
-  
-  it.only('should say loading while retreving the data', () => {
+
+  it('should say loading while retreving the data', () => {
     cy.get('a').contains('Login').click()
       .get('body').then(body => {
         if(body.get('.loading')) {
@@ -84,7 +84,7 @@ describe('Sign up', () => {
         }
       })
   })
-  
+
   it('should redirect to login component when Login is clicked', () => {
     cy.get('a').contains('Login').click()
       .url().should('eq', 'http://localhost:3000/login')
