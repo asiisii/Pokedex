@@ -3,6 +3,9 @@
 ### Table of Contents
 - [Pokedex](#pokedex)
 
+### Overview
+A React application featuring original Pokemon built in 11 days, where team self-taught themselves Firebase to implement a login/signup feature. 
+
 ## Technologies Used
 - Firebase
 - React
