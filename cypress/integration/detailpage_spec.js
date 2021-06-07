@@ -81,9 +81,4 @@ describe('Detail page', () => {
       .contains('Moves: swords-dance | cut | bind')
   })
 
-  it('should logout account once Log out button is clicked', () => {
-    cy.get('button').contains('Log out').click()
-      .url().should('eq', 'http://localhost:3000/login')
-      .get('h2').contains('Continue Adventure')
-  })
 })
