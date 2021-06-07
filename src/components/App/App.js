@@ -15,7 +15,6 @@ const App = () => {
   const [pokemons, setPokemons] = useState([])
   const [caughtPokemon, setCaughtPokemon] = useState([])
   const [error, setError] = useState('')
-  // const isMounted = useIsMounted();
 
   const catchPokemon = (pokemonName) => {
     if(!caughtPokemon.includes(pokemonName)) {
