@@ -2,12 +2,36 @@
 
 ### Table of Contents
 - [Pokedex](#pokedex)
+    - [Table of Contents](#table-of-contents)
+    - [Overview](#overview)
+    - [Learning Goals](#learning-goals)
+  - [Technologies Used](#technologies-used)
+  - [Functionality](#functionality)
+    - [Signup](#signup)
+    - [Login](#login)
+    - [Main Page](#main-page)
+    - [Catching Pokemon](#catching-pokemon)
+    - [Individual Pokemon details](#individual-pokemon-details)
+    - [Logging out](#logging-out)
+  - [Credits](#credits)
+      - [Authors](#authors)
+      - [Project Managers](#project-managers)
+        - [2021/06/06](#20210606)
 
 ### Overview
 A React application featuring original Pokemon built in 11 days, where team self-taught themselves Firebase to implement a login/signup feature. 
 
  - Deployed [Link](http://serious-bridge.surge.sh/login)
  - GitHub Repo [Link](https://github.com/asiisii/Pokedex)
+
+### Learning Goals
+- Use Firebase for authentication 
+- Gain competency with React fundamentals
+- Use Cypress to test React components & asynchronous JS
+- Practice refactoring
+- Create a multi-page UX using Router
+- Implement responsive design for cross-screen compatibility
+- Deploy application using Surge
 
 ## Technologies Used
 - Firebase
