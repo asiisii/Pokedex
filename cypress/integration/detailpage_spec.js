@@ -22,14 +22,6 @@ describe('Detail page', () => {
     })
   })
 
-  it('should have header contents', () => {
-    cy.get('header')
-      .get('a').eq(0).contains('Home')
-      .get('h1').contains('Pokédex')
-      .get('a').eq(1).contains('Show Caught')
-      .get('button').contains('Log out')
-  })
-
   it('should have info header', () => {
     cy.get('.info-header > a')
       .contains('Go back')
