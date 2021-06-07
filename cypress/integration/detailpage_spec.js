@@ -26,6 +26,8 @@ describe('Detail page', () => {
     cy.get('.info-header > a')
       .contains('Go back')
       .get('h1').contains('BULBASAUR')
+      .get('button').contains('Regular Form')
+      .get('button').contains('Shiny Form')
       .get('img').eq(0)
       .should('have.attr', 'src', uncaughtBall)
   })
