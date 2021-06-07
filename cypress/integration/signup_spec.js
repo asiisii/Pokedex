@@ -13,7 +13,7 @@ describe('Sign up', () => {
       .get('form input[type="password"]').should('have.length', 2)
       .get('form input[type]')
       .get('button').contains('Sign Up')
-      .get('p').contains('Already have an account')
+      .get('p').contains('Already a Trainer?')
       .get('a').contains('Login')
   })
 
