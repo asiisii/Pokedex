@@ -54,7 +54,7 @@ describe('Detail page', () => {
 
   it('should go back to home page when click on go back', () => {
     cy.wait(1000)
-      .get('a').eq(2).click()
+      .get('a').click()
       .url().should('eq', 'http://localhost:3000/')
       .get('h1').contains('Pokédex')
   })
