@@ -11,7 +11,7 @@ describe('Login Page', () => {
       .get('label').eq(1).contains('Password')
       .get('form input[type="password"]')
       .get('button').contains('Login')
-      .get('p').contains('Need an account?')
+      .get('p').contains('Become a Trainer?')
       .get('a').contains('Sign Up')
   })
 
@@ -85,5 +85,5 @@ describe('Error', () => {
       .get('button').click()
       .get('h1').contains('Request failed')
   })
-  
+
 })
