@@ -28,7 +28,7 @@ const Home = ({pokemons, caught, favorite, error}) =>{
       <div className="card-display">
         {cards}
       </div>
-     }
+    }
     </>
   )
 }

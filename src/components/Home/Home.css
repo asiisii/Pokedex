@@ -1,9 +1,10 @@
 .card-display {
   background-color: white;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20px;
+  text-align: center;
+  padding: 12px;
   min-height: 756px;
   border: 8px solid black;
   border-bottom: solid 20px red;
@@ -11,8 +12,29 @@
 }
 
 /*~~~~~~MEDIA QUERIES~~~~~~*/
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1600px) {
   .card-display {
     width: 95%;
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+@media screen and (max-width: 1600px) and (min-width: 1200px) {
+  .card-display {
+    grid-template-columns: repeat(4, 1fr);
+    width: 95%;
+  }
+}
+
+@media screen and (max-width: 1200px) and (min-width: 800px) {
+  .card-display{
+    width: 95%;
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (max-width: 800px) and (min-width: 425px) {
+  .card-display {
+    width: 90%;
   }
 }

@@ -28,7 +28,7 @@ a:visited {
   color: black;
 }
 
-a:hover {
+header > div > a:hover {
   color: white;
 }
 
