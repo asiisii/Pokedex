@@ -15,7 +15,6 @@ const App = () => {
   const [pokemons, setPokemons] = useState([])
   const [caughtPokemon, setCaughtPokemon] = useState([])
   const [error, setError] = useState('')
-  // const isMounted = useIsMounted();
 
   const catchPokemon = (pokemonName) => {
     if(!caughtPokemon.includes(pokemonName)) {
@@ -27,20 +26,18 @@ const App = () => {
     }
   }
       
-  const fetchAllPokemonData = async (query) => {
-    setError('')
-    try {
-      const fetchedPokemon = await fetchPokemonData(query)
-      setPokemons(fetchedPokemon.results)
-    } catch (e) {
-      setError('Request failed')
-    }
-   
-  }
-
   useEffect(() => {
-    fetchAllPokemonData('?limit=151') 
-  }, [pokemons])
+    const fetchPokemon = async () => {
+      setError('')
+      try {
+        const fetchedPokemon = await fetchPokemonData('?limit=151')
+        setPokemons(fetchedPokemon.results)
+      } catch (e) {
+        setError('Request failed')
+      }
+    }
+    fetchPokemon()
+  }, [])
 
   return (
     <main>
