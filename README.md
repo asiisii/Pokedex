@@ -15,7 +15,21 @@
 - Github
 - Pokemon Api
 - Surge (deployed)
-  
+
+## Functionality
+### Signup 
+![Signup](https://media.giphy.com/media/PTNPBeVqKTAKCYu2gh/giphy.gif)
+### Login
+![Login](https://media.giphy.com/media/b3GgKQjpGQIhHggCaH/giphy.gif)
+### Main Page
+![Main Page](https://media.giphy.com/media/WwSwTPSIQwVb0OESmc/giphy.gif)
+### Catching Pokemon
+![Catching Pokemon](https://media.giphy.com/media/buvoBFzrEP5XEtFiwx/giphy.gif)
+### Individual Pokemon details
+![Individual Pokemon details](https://media.giphy.com/media/vIMKT4tSKHi9pb06ym/giphy.gif)
+### Logging out
+![Loggin out](https://media.giphy.com/media/35QgaCYOqnYhROm2Z2/giphy.gif)
+
 ## Credits
 #### Authors
 <table>
