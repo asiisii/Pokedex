@@ -85,12 +85,23 @@ describe('Detail page', () => {
       .contains('Moves: swords-dance | cut | bind')
   })
 
-  it('should change the image to shiny form when button is clicked', () => {
+  it('should change the image to shiny form when Shiny Form button is clicked', () => {
     cy.get('img').eq(1)
       .should('have.attr', 'src', 'https://play.pokemonshowdown.com/sprites/xyani/bulbasaur.gif')
       .get('button').contains('Shiny Form').click()
       .get('img').eq(1)
       .should('have.attr', 'src', 'https://play.pokemonshowdown.com/sprites/ani-shiny/bulbasaur.gif')
+  })
+
+  it('should change the image back to regular form when Regular Form button is clicked', () => {
+    cy.get('img').eq(1)
+      .should('have.attr', 'src', 'https://play.pokemonshowdown.com/sprites/xyani/bulbasaur.gif')
+      .get('button').contains('Shiny Form').click()
+      .get('img').eq(1)
+      .should('have.attr', 'src', 'https://play.pokemonshowdown.com/sprites/ani-shiny/bulbasaur.gif')
+      .get('button').contains('Regular Form').click()
+      .get('img').eq(1)
+      .should('have.attr', 'src', 'https://play.pokemonshowdown.com/sprites/xyani/bulbasaur.gif')
   })
 
 })
