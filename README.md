@@ -1,7 +1,7 @@
 # Pokedex
 
 ### Table of Contents
-- [Netflex](#netflex)
+- [Pokedex](#pokedex)
 
 ## Technologies Used
 - Firebase
