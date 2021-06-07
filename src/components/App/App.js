@@ -27,52 +27,18 @@ const App = () => {
     }
   }
       
-  const fetchAllPokemonData = async () => {
-    setError('')
-    try {
-      const fetchedPokemon = await fetchPokemonData('?limit=151')
-      setPokemons(fetchedPokemon.results)
-      // fetchPokemonData('?limit=151').then(data => {
-      //   if (isMounted.current) {
-      //     setPokemons(data.results)
-      //   }
-      // })
-      // return fetchedPokemon ? setPokemons(fetchedPokemon.results) : null
-    } catch (e) {
-      setError('Request failed')
-    }
-   
-  }
-
   useEffect(() => {
-  //   let mounted = true
-  // if (mounted) {
-    fetchAllPokemonData() 
-    // setError('')
-    // fetchPokemonData('?limit=151').then(data => {
-    //       if (isMounted.current) {
-    //         setPokemons(data.results)
-    //       }
-    //     })
-    // try {
-    //   // const fetchedPokemon = await fetchPokemonData('?limit=151')
-    //   fetchPokemonData('?limit=151').then(data => {
-    //     if (isMounted.current) {
-    //       setPokemons(data.results)
-    //     }
-    //   })
-    //   // return fetchedPokemon ? setPokemons(fetchedPokemon.results) : null
-    // } catch (e) {
-    //   setError('Request failed')
-    // }
-  // }
-  //  return () => {
-  //   mounted = false
-  // }
-  //  const abortController = new AbortController()
-  //  return (() => abortController.abort())
-    
-  }, [pokemons])
+    const fetchPokemon = async () => {
+      setError('')
+      try {
+        const fetchedPokemon = await fetchPokemonData('?limit=151')
+        setPokemons(fetchedPokemon.results)
+      } catch (e) {
+        setError('Request failed')
+      }
+    }
+    fetchPokemon()
+  }, [])
 
   return (
     <main>

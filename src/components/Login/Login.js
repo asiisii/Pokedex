@@ -8,20 +8,17 @@ export default function Login() {
   const passwordRef = useRef()
   const { login } = useAuth()
   const [error, setError] = useState('')
-  const [loading, setLoading] = useState('')
   const history = useHistory()
 
   async function handleSubmit(e) {
     e.preventDefault()
     try{
       setError('')
-      setLoading(true)
       await login(emailRef.current.value, passwordRef.current.value)
       history.push('/')
     }catch{
       setError('Email or password is incorrect')
     }
-    setLoading(false)
   }
 
   return (
@@ -49,7 +46,7 @@ export default function Login() {
               />
           </label>
         </div>
-          <button disabled={loading} className='submit-button' type='submit'>Login</button>
+          <button className='submit-button' type='submit'>Login</button>
         </form>
         <div>
           <p className='switch'>Become a Trainer? <Link to='/signup'>Sign Up</Link></p>
