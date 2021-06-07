@@ -68,6 +68,8 @@ describe('Detail page', () => {
       .url().should('eq', 'http://localhost:3000/2')
       .get('.info-header > a')
       .get('h1').contains('IVYSAUR')
+      .get('button').contains('Regular Form')
+      .get('button').contains('Shiny Form')
       .get('.pokemon-info')
       .find('img').eq(1)
       .should('have.attr', 'src', 'https://play.pokemonshowdown.com/sprites/xyani/ivysaur.gif')
