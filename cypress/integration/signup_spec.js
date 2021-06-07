@@ -13,7 +13,7 @@ describe('Sign up', () => {
       .get('form input[type="password"]').should('have.length', 2)
       .get('form input[type]')
       .get('button').contains('Sign Up')
-      .get('p').contains('Already have an account')
+      .get('p').contains('Already a Trainer?')
       .get('a').contains('Login')
   })
 
@@ -75,8 +75,8 @@ describe('Sign up', () => {
       .get('button').click()
       .get('form input[type="email"]:invalid')
   })
-  
-  it.only('should say loading while retreving the data', () => {
+
+  it('should say loading while retreving the data', () => {
     cy.get('a').contains('Login').click()
       .get('body').then(body => {
         if(body.get('.loading')) {
@@ -84,7 +84,7 @@ describe('Sign up', () => {
         }
       })
   })
-  
+
   it('should redirect to login component when Login is clicked', () => {
     cy.get('a').contains('Login').click()
       .url().should('eq', 'http://localhost:3000/login')

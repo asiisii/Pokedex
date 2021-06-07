@@ -22,18 +22,12 @@ describe('Detail page', () => {
     })
   })
 
-  it('should have header contents', () => {
-    cy.get('header')
-      .get('a').eq(0).contains('Home')
-      .get('h1').contains('Pokédex')
-      .get('a').eq(1).contains('Show Caught')
-      .get('button').contains('Log out')
-  })
-
   it('should have info header', () => {
     cy.get('.info-header > a')
       .contains('Go back')
       .get('h1').contains('BULBASAUR')
+      .get('button').contains('Regular Form')
+      .get('button').contains('Shiny Form')
       .get('img').eq(0)
       .should('have.attr', 'src', uncaughtBall)
   })
@@ -62,18 +56,20 @@ describe('Detail page', () => {
 
   it('should go back to home page when click on go back', () => {
     cy.wait(1000)
-      .get('a').eq(2).click()
+      .get('a').click()
       .url().should('eq', 'http://localhost:3000/')
       .get('h1').contains('Pokédex')
   })
 
   it('should have ivysaur info', () => {
     cy.wait(1000)
-      .get('a').eq(2).click()
+      .get('a').click()
       .get('.pokemon-card').eq(1).click()
       .url().should('eq', 'http://localhost:3000/2')
       .get('.info-header > a')
       .get('h1').contains('IVYSAUR')
+      .get('button').contains('Regular Form')
+      .get('button').contains('Shiny Form')
       .get('.pokemon-info')
       .find('img').eq(1)
       .should('have.attr', 'src', 'https://play.pokemonshowdown.com/sprites/xyani/ivysaur.gif')
@@ -89,9 +85,23 @@ describe('Detail page', () => {
       .contains('Moves: swords-dance | cut | bind')
   })
 
-  it('should logout account once Log out button is clicked', () => {
-    cy.get('button').contains('Log out').click()
-      .url().should('eq', 'http://localhost:3000/login')
-      .get('h2').contains('Continue Adventure')
+  it('should change the image to shiny form when Shiny Form button is clicked', () => {
+    cy.get('img').eq(1)
+      .should('have.attr', 'src', 'https://play.pokemonshowdown.com/sprites/xyani/bulbasaur.gif')
+      .get('button').contains('Shiny Form').click()
+      .get('img').eq(1)
+      .should('have.attr', 'src', 'https://play.pokemonshowdown.com/sprites/ani-shiny/bulbasaur.gif')
   })
+
+  it('should change the image back to regular form when Regular Form button is clicked', () => {
+    cy.get('img').eq(1)
+      .should('have.attr', 'src', 'https://play.pokemonshowdown.com/sprites/xyani/bulbasaur.gif')
+      .get('button').contains('Shiny Form').click()
+      .get('img').eq(1)
+      .should('have.attr', 'src', 'https://play.pokemonshowdown.com/sprites/ani-shiny/bulbasaur.gif')
+      .get('button').contains('Regular Form').click()
+      .get('img').eq(1)
+      .should('have.attr', 'src', 'https://play.pokemonshowdown.com/sprites/xyani/bulbasaur.gif')
+  })
+
 })
